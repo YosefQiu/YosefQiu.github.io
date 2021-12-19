@@ -16,12 +16,14 @@
 <meta property="og:description" content="With the rapid development of CPU and GPU, 3D models are not only becoming more and more complex and rich in details, but also widely used in animation, machinery, medical and other fields. The number">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/YosefQiu/image/blob/master/uPic/model_prj.gif?raw=true">
+<meta property="og:image" content="https://github.com/YosefQiu/image/blob/master/uPic/%E5%BD%A2%E7%8A%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6.jpg?raw=true">
 <meta property="og:image" content="https://github.com/YosefQiu/image/blob/master/uPic/%E6%A4%85%E5%AD%90%E6%A3%80%E7%B4%A2.gif?raw=true">
 <meta property="og:image" content="https://github.com/YosefQiu/image/blob/master/uPic/%E6%A1%8C%E5%AD%90%E6%A3%80%E7%B4%A2.gif?raw=true">
 <meta property="article:published_time" content="2021-06-20T18:18:29.000Z">
-<meta property="article:modified_time" content="2021-12-19T20:21:07.633Z">
+<meta property="article:modified_time" content="2021-12-19T21:22:11.254Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="3D model retrieval">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://github.com/YosefQiu/image/blob/master/uPic/model_prj.gif?raw=true">
   
@@ -191,11 +193,14 @@
 <p>The projection system of 3D model in this paper adopts OpenGL and OpenCV as geometric modeling platform, imgui as UI interface and C++ language. A simple renderer is implemented. The main functions are: reading and real model; Rotate, scale and move the model; Add different lighting effects to the model (horizontal light, point light, spotlight); Different material effects; Projection of 3D model.<br><img src="https://github.com/YosefQiu/image/blob/master/uPic/model_prj.gif?raw=true" alt="src"></p>
 <h4 id="3D-model-retrieval"><a href="#3D-model-retrieval" class="headerlink" title="3D model retrieval"></a>3D model retrieval</h4><p>Second, Lest talk about retrieval. In this part, It is most important to consider which feature descriptor to choose and use. I make up a feature descriptor called Integrated featrue descriptor by Fourier descriptor and Zernike moments. Finally, I use Integrated feature descriptor and D2 shape descriptor as a model’s feature descriptor.</p>
 <h5 id="Fourier-descriptor"><a href="#Fourier-descriptor" class="headerlink" title="Fourier descriptor"></a>Fourier descriptor</h5><p>So what is fourier descriptor? The influence of Fourier descriptor is used to describe the contour data information of the expressed image, which has the characteristics of parallel movement, rotation and scale constancy. For an image, the image contour information is obtained by Fourier descriptor. Its essence is the problem of spatial and frequency domain transformation. The contour information of the image is obtained by Fourier transform of the pixels in the image. As a result of the low-pass filtering of the Fourier descriptor, the low-frequency component of the Fourier descriptor captures the general shape characteristics of the object, and the high-frequency component captures finer details, and the Fourier descriptor does not consider the spatial position.</p>
-<p>$S(t) = X(t)+Y(t)$</p>
-<p>$S(t) = \frac{a_{x_0}}{2}+\sum^{\infty}<em>{k=1}\left[a</em>{xk}cos(kwt) + b_{xk}sin(kwt)\right]$</p>
-<p>$\mathcal{F}\left[S(t)\right] = \sum^{T-1}_{t = 0}S(t)e^{-j_2\pi k\frac{t}{T}}$</p>
+<p>$$<br>S(t) = X(t)+Y(t)<br>$$</p>
+<p>$$<br>\mathcal{F}\left[S(t)\right] = \sum^{T-1}_{t = 0}S(t)e^{-j_2\pi k\frac{t}{T}}<br>$$</p>
 <h5 id="Zernike-moments"><a href="#Zernike-moments" class="headerlink" title="Zernike moments"></a>Zernike moments</h5><p>The moment of the image generally describes the overall global characteristics of the modified image, and provides a lot of different kinds of mathematical and geometric feature data information for the image, such as size, specific location, distribution direction and specific shape. Zernike moment is an orthogonal moment, which is an operation function orthogonalized according to various Zernike formulas. Zernike moment has the following characteristics: perfection, orthogonality, rotation, no bending deformation. Zernike moment is a complex moment. The module of Zernike moment is usually used as a feature to express the specific shape of an object.</p>
-<h5 id="D2-Shape-descriptor"><a href="#D2-Shape-descriptor" class="headerlink" title="D2 Shape descriptor"></a>D2 Shape descriptor</h5><p>According this image, we can know what is D2 descriptor. Random two points are connected on the surface of the experimental model, and the probability of the effective actual distance between the two points is dispersed to form the specific shape characteristics of D2.<br><img src="https://github.com/YosefQiu/image/blob/master/uPic/%E6%A4%85%E5%AD%90%E6%A3%80%E7%B4%A2.gif?raw=true" alt="img"><br><img src="https://github.com/YosefQiu/image/blob/master/uPic/%E6%A1%8C%E5%AD%90%E6%A3%80%E7%B4%A2.gif?raw=true" alt="img">   </p>
+<h5 id="D2-Shape-descriptor"><a href="#D2-Shape-descriptor" class="headerlink" title="D2 Shape descriptor"></a>D2 Shape descriptor</h5><p><img src="https://github.com/YosefQiu/image/blob/master/uPic/%E5%BD%A2%E7%8A%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6.jpg?raw=true" alt="img"><br>According this image, we can know what is D2 descriptor. Random two points are connected on the surface of the experimental model, and the probability of the effective actual distance between the two points is dispersed to form the specific shape characteristics of D2.</p>
+<h4 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h4><ul>
+<li>Retrieve chair<br><img src="https://github.com/YosefQiu/image/blob/master/uPic/%E6%A4%85%E5%AD%90%E6%A3%80%E7%B4%A2.gif?raw=true" alt="img">   </li>
+<li>Retrieve table<br><img src="https://github.com/YosefQiu/image/blob/master/uPic/%E6%A1%8C%E5%AD%90%E6%A3%80%E7%B4%A2.gif?raw=true" alt="img">   </li>
+</ul>
 
       
 
@@ -231,6 +236,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">3D model retrieval</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -454,6 +463,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
             
             <div class="clearfix"></div>
