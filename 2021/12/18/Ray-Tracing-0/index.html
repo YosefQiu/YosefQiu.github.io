@@ -6,22 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Image Mosaicing | Hexo</title>
+  <title>Ray Tracing(0) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This article refers to the notes of the Prof. Ross Whitaker, who is my teacher of CS 6600 Image Processing. This year, I chose Professor Ross’s course on image processing. Recently, I suddenly became">
+  <meta name="description" content="This is my summary of my independent study this semester.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Image Mosaicing">
-<meta property="og:url" content="http://example.com/2021/12/05/Image-Mosaicing/index.html">
+<meta property="og:title" content="Ray Tracing(0)">
+<meta property="og:url" content="http://example.com/2021/12/18/Ray-Tracing-0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="This article refers to the notes of the Prof. Ross Whitaker, who is my teacher of CS 6600 Image Processing. This year, I chose Professor Ross’s course on image processing. Recently, I suddenly became">
+<meta property="og:description" content="This is my summary of my independent study this semester.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/YosefQiu/image/blob/master/uPic/image-mosiciang.jpg?raw=true">
-<meta property="article:published_time" content="2021-12-05T22:37:08.000Z">
-<meta property="article:modified_time" content="2021-12-20T17:57:28.830Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic4.bmp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic1.bmp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic2.bmp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic3.bmp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic5.bmp">
+<meta property="article:published_time" content="2021-12-18T18:55:05.000Z">
+<meta property="article:modified_time" content="2021-12-20T19:12:29.224Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Image Processing">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Ray Tracing">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/YosefQiu/image/blob/master/uPic/image-mosiciang.jpg?raw=true">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic4.bmp">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,33 +162,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Image-Mosaicing" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Ray-Tracing-0" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Image Mosaicing
+      Ray Tracing(0)
     </h1>
   
 
         
-        <a href="/2021/12/05/Image-Mosaicing/" class="archive-article-date">
-  	<time datetime="2021-12-05T22:37:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-05</time>
+        <a href="/2021/12/18/Ray-Tracing-0/" class="archive-article-date">
+  	<time datetime="2021-12-18T18:55:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This article refers to the notes of the Prof. Ross Whitaker, who is my teacher of CS 6600 Image Processing.</p>
-<p>This year, I chose Professor Ross’s course on image processing. Recently, I suddenly became interested in the geometric transformation of images in Prof. Ross’s lesson.  After reading several related papers, I found that the distortion of images is very interesting, so I wrote this blog.</p>
-<p>A strategy of warping one image to other image is using sets of landmarks of fiducial pairs, which we call correspondences. Suppose we have N correspondences as points $\left{(x_1, y_1), (x_2, y_2), … , (x_N, y_N)\right}$ in image g and image f respectively. Our goal is to find a transformation between two image such that $x^{‘}_{1} = T(X_1)$. To find such a warp we normally parameterize the transformation.</p>
-<span id="more"></span>
-<p>Then let’s talk about image mosiciang. we both know that two images that are produced from either a pure rotation of an observer or arbitrary views of a planar object are related to one another by a 2D perspective transformation. Hence, It is necessary to consider the perspective mapping. We denote two correspondences points in homogeneous coordinates as $(x, y, 1)$ and  $(x^{‘}, y^{‘}, 1)$. In perspective mappings, two points are equivalent if they are identical to within a scale factor. That is, $x, y, z$ is equivalent to  $x^{‘}, y^{‘}, z^{‘}$ if there exists some $\lambda $ such that $x = \lambda x^{‘}$.</p>
-<p>The <strong>perspective transformation</strong> relating two points is a 3 x 3 matrix multiplication followed by the normalization described above. That is<br>$$<br>\left[\begin{matrix} x^{‘} \ y^{‘} \ z^{‘} \end{matrix}\right] = P \left[\begin{matrix} x \ y \ z \end{matrix}\right]<br>$$<br>Thus, when we are trying to find perspective transformation, must find the 3 x 3 matrix that maps sets of control points tow within a scale factor. we denote the elements of this linear mapping as $P = p_{ij}$:<br>$$<br>P = \left[\begin{matrix} p_{11} &amp; p_{12} &amp; p_{13} \ p_{21} &amp; p_{22} &amp; p_{23} \ p_{31} &amp; p_{32} &amp; 1 \end{matrix}\right]<br>$$<br>Then we can get<br>$$<br>x^{‘} = \frac{p_{11}x+p_{12}y+p_{13}}{p_{31}x+p+{32}+1}<br>$$<br>$$<br>y^{‘} = \frac{p_{21}x+p_{22}y+p_{23}}{p_{31}x+p+{32}+1}<br>$$<br>If we rearrange the terms we have the following linear relationship, we can get:<br>$$<br>p_{31}xx^{‘}+p_{32}yx^{‘}-p_{11}x-p_{12}y-p_{13}=-x^{‘}<br>$$<br>$$<br>p_{31}xy^{‘}+p_{32}yy^{‘}-p_{21}x-p_{22}y-p_{23}=-y^{‘}<br>$$<br>Therefore, we can get the linear system:<br>$$<br>\left[\begin{matrix}<br>-x_1 &amp; -y_1 &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; x_1x^{‘}<em>{1} &amp; y_1x^{‘}</em>{1} \<br>-x_2 &amp; -y_2 &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; x_2x^{‘}<em>{2} &amp; y_2x^{‘}</em>{2} \<br>&amp; &amp; &amp; &amp; \vdots \<br>-x_N &amp; -y_N, &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; x_Nx^{‘}<em>{N} &amp; y_Nx^{‘}</em>{N} \<br>0 &amp; 0 &amp; 0 &amp; -x_1 &amp; -y_1 &amp; -1 &amp; x_1y^{‘}<em>{1} &amp; y_1y^{‘}</em>{1} \<br>0 &amp; 0 &amp; 0 &amp; -x_2 &amp; -y_2 &amp; -1 &amp; x_2y^{‘}<em>{2} &amp; y_2y^{‘}</em>{2} \<br>&amp; &amp; &amp; &amp; \vdots \<br>0 &amp; 0 &amp; 0 &amp; -x_N &amp; -y_N &amp; -1 &amp; x_Ny^{‘}<em>{N} &amp; y_Ny^{‘}</em>{N} \<br>\end{matrix}\right] \left[\begin{matrix} p_{11} \ p_{12} \ p_{13} \ p_{21} \ p_{22} \ p_{23} \ p_{31}  \ p_{32} \end{matrix}\right] = \left[\begin{matrix}  -x^{‘}<em>{1} \ -x^{‘}</em>{2} \ \vdots \ -x^{‘}<em>{N} \ -y^{‘}</em>{1} \ -y^{‘}<em>{2} \ -y^{‘}</em>{N} \end{matrix}\right]<br>$$<br>Solving this system gives us P. To actually implement the transformation (e.g. in image warping), is a two step process. You first multiply each coordinate (homogeneous) by the matrix P and then divide by w.<br>Last, let’s take a look at the resulting graph of the run.</p>
-<h2 id=""><a href="#" class="headerlink" title="  "></a><img src="https://github.com/YosefQiu/image/blob/master/uPic/image-mosiciang.jpg?raw=true" alt="img">  </h2><h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><p>[1]Ross Whitaker.Geometric Imager Warping.2021.12.07</p>
+        <p>This is my summary of my independent study this semester.</p>
+<div align="center"><img src="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic4.bmp" width = "500" height = "300" alt="img" align=center /></div>
+<span id="more"></span> 
+
+<p>I mainly focus on the Ray-tracing this semester. I read the three books. They are Ray Tracing in the weekend, Ray Tracing the next week, Physically-based Rendering, respectively. I’m still reading the last book.     </p>
+<p>&lt;br&gt;<br>When I read, I  understood some basic algorithms, such as the BSP and BVH tree, and then implemented a basic ray tracing renderer. For this renderer. I used your mathematic related codes, which are called cyVector and cyMatrix, respectively. I implemented some fundamentals class like Camera-class, Ray-class, Geometry-class. Then,  I tried to code different materials like diffuse material, metal material, glass material. I also use different textures like Image-texture, Perlin-noise, Solid-texture. After I implemented the basic geometric model(sphere, box, cylinder), I used triangles to construct the mesh and load the OBJ model(Utah-teapot).     </p>
+<p>&lt;br&gt;<br>I have also learned about the computing speed of ray tracing. At first, I didn’t have multiple sampling. The result is that although the speed is fast, the quality of the rendering result is poor. After adding the multiple sampling function, I used multithreading to speed up rendering. Unfortunately, I don’t have an RTX graphics card at present. I can’t put my computing on the GPU. But I recently read a paper and found a new way called Distributed computing—the task of splitting the picture to be generated after rendering using the CPUs of multiple computers.      </p>
+<p>&lt;br&gt;<br>I want to make a series similar to soft-render to talk about my understanding of ray tracing.</p>
+<p>Finally, I used some of my rendered result as attachments.</p>
+<div align="center"><img src="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic1.bmp" width = "" height = "" alt="img" align=center /></div>
+<div align="center"><img src="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic2.bmp" width = "" height = "" alt="img" align=center /></div>
+<div align="center"><img src="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic3.bmp" width = "" height = "" alt="img" align=center /></div>
+<div align="center"><img src="https://cdn.jsdelivr.net/gh/YosefQiu/image@master/uPic/pic5.bmp" width = "" height = "" alt="img" align=center /></div>
 
       
 
@@ -218,7 +229,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Image Processing</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ray Tracing</a>
         		</li>
       		
 		</ul>
@@ -274,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/12/05/Image-Mosaicing/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/12/18/Ray-Tracing-0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +303,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/12/18/Ray-Tracing-0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Ray Tracing(0)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/10/01/SoftRender-0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SoftRender(0)</div>
+    <a href="/2021/12/05/Image-Mosaicing/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Image Mosaicing</div>
       <i class="icon-circle-right"></i>
     </a>
   
