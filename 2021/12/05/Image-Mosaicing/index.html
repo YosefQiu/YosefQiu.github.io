@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Image Mosaicing | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This year, I chose Professor Ross’s course on image processing. Recently, I suddenly became interested in the geometric transformation of images in Prof. Ross’s lesson.  After reading several related">
+  <meta name="description" content="This article refers to the notes of the Prof. Ross Whitaker, who is my teacher of CS 6600 Image Processing. This year, I chose Professor Ross’s course on image processing. Recently, I suddenly became">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Image Mosaicing">
 <meta property="og:url" content="http://example.com/2021/12/05/Image-Mosaicing/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="This year, I chose Professor Ross’s course on image processing. Recently, I suddenly became interested in the geometric transformation of images in Prof. Ross’s lesson.  After reading several related">
+<meta property="og:description" content="This article refers to the notes of the Prof. Ross Whitaker, who is my teacher of CS 6600 Image Processing. This year, I chose Professor Ross’s course on image processing. Recently, I suddenly became">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/YosefQiu/image/blob/master/uPic/image-mosiciang.jpg?raw=true">
 <meta property="article:published_time" content="2021-12-05T22:37:08.000Z">
-<meta property="article:modified_time" content="2021-12-19T22:47:00.721Z">
+<meta property="article:modified_time" content="2021-12-20T17:57:28.830Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Image Processing">
 <meta name="twitter:card" content="summary">
@@ -177,10 +177,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This year, I chose Professor Ross’s course on image processing. Recently, I suddenly became interested in the geometric transformation of images in Prof. Ross’s lesson.  After reading several related papers, I found that the distortion of images is very interesting, so I wrote this blog.</p>
-<p>A strategy of warping one image to other image is using sets of landmarks of fiducial pairs, which we call correspondences.<br>
-First, let’s take a look at the resulting graph of the run.</p>
-<p><img src="https://github.com/YosefQiu/image/blob/master/uPic/image-mosiciang.jpg?raw=true" alt="img"></p>
+        <p>This article refers to the notes of the Prof. Ross Whitaker, who is my teacher of CS 6600 Image Processing.</p>
+<p>This year, I chose Professor Ross’s course on image processing. Recently, I suddenly became interested in the geometric transformation of images in Prof. Ross’s lesson.  After reading several related papers, I found that the distortion of images is very interesting, so I wrote this blog.</p>
+<p>A strategy of warping one image to other image is using sets of landmarks of fiducial pairs, which we call correspondences. Suppose we have N correspondences as points $\left{(x_1, y_1), (x_2, y_2), … , (x_N, y_N)\right}$ in image g and image f respectively. Our goal is to find a transformation between two image such that $x^{‘}_{1} = T(X_1)$. To find such a warp we normally parameterize the transformation.</p>
+<span id="more"></span>
+<p>Then let’s talk about image mosiciang. we both know that two images that are produced from either a pure rotation of an observer or arbitrary views of a planar object are related to one another by a 2D perspective transformation. Hence, It is necessary to consider the perspective mapping. We denote two correspondences points in homogeneous coordinates as $(x, y, 1)$ and  $(x^{‘}, y^{‘}, 1)$. In perspective mappings, two points are equivalent if they are identical to within a scale factor. That is, $x, y, z$ is equivalent to  $x^{‘}, y^{‘}, z^{‘}$ if there exists some $\lambda $ such that $x = \lambda x^{‘}$.</p>
+<p>The <strong>perspective transformation</strong> relating two points is a 3 x 3 matrix multiplication followed by the normalization described above. That is<br>$$<br>\left[\begin{matrix} x^{‘} \ y^{‘} \ z^{‘} \end{matrix}\right] = P \left[\begin{matrix} x \ y \ z \end{matrix}\right]<br>$$<br>Thus, when we are trying to find perspective transformation, must find the 3 x 3 matrix that maps sets of control points tow within a scale factor. we denote the elements of this linear mapping as $P = p_{ij}$:<br>$$<br>P = \left[\begin{matrix} p_{11} &amp; p_{12} &amp; p_{13} \ p_{21} &amp; p_{22} &amp; p_{23} \ p_{31} &amp; p_{32} &amp; 1 \end{matrix}\right]<br>$$<br>Then we can get<br>$$<br>x^{‘} = \frac{p_{11}x+p_{12}y+p_{13}}{p_{31}x+p+{32}+1}<br>$$<br>$$<br>y^{‘} = \frac{p_{21}x+p_{22}y+p_{23}}{p_{31}x+p+{32}+1}<br>$$<br>If we rearrange the terms we have the following linear relationship, we can get:<br>$$<br>p_{31}xx^{‘}+p_{32}yx^{‘}-p_{11}x-p_{12}y-p_{13}=-x^{‘}<br>$$<br>$$<br>p_{31}xy^{‘}+p_{32}yy^{‘}-p_{21}x-p_{22}y-p_{23}=-y^{‘}<br>$$<br>Therefore, we can get the linear system:<br>$$<br>\left[\begin{matrix}<br>-x_1 &amp; -y_1 &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; x_1x^{‘}<em>{1} &amp; y_1x^{‘}</em>{1} \<br>-x_2 &amp; -y_2 &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; x_2x^{‘}<em>{2} &amp; y_2x^{‘}</em>{2} \<br>&amp; &amp; &amp; &amp; \vdots \<br>-x_N &amp; -y_N, &amp; -1 &amp; 0 &amp; 0 &amp; 0 &amp; x_Nx^{‘}<em>{N} &amp; y_Nx^{‘}</em>{N} \<br>0 &amp; 0 &amp; 0 &amp; -x_1 &amp; -y_1 &amp; -1 &amp; x_1y^{‘}<em>{1} &amp; y_1y^{‘}</em>{1} \<br>0 &amp; 0 &amp; 0 &amp; -x_2 &amp; -y_2 &amp; -1 &amp; x_2y^{‘}<em>{2} &amp; y_2y^{‘}</em>{2} \<br>&amp; &amp; &amp; &amp; \vdots \<br>0 &amp; 0 &amp; 0 &amp; -x_N &amp; -y_N &amp; -1 &amp; x_Ny^{‘}<em>{N} &amp; y_Ny^{‘}</em>{N} \<br>\end{matrix}\right] \left[\begin{matrix} p_{11} \ p_{12} \ p_{13} \ p_{21} \ p_{22} \ p_{23} \ p_{31}  \ p_{32} \end{matrix}\right] = \left[\begin{matrix}  -x^{‘}<em>{1} \ -x^{‘}</em>{2} \ \vdots \ -x^{‘}<em>{N} \ -y^{‘}</em>{1} \ -y^{‘}<em>{2} \ -y^{‘}</em>{N} \end{matrix}\right]<br>$$<br>Solving this system gives us P. To actually implement the transformation (e.g. in image warping), is a two step process. You first multiply each coordinate (homogeneous) by the matrix P and then divide by w.<br>Last, let’s take a look at the resulting graph of the run.</p>
+<h2 id=""><a href="#" class="headerlink" title="  "></a><img src="https://github.com/YosefQiu/image/blob/master/uPic/image-mosiciang.jpg?raw=true" alt="img">  </h2><h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><p>[1]Ross Whitaker.Geometric Imager Warping.2021.12.07</p>
 
       
 
@@ -447,7 +450,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
+                <a href="javascript:void(0)" class="js-tag color2">Computer Graphic</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Soft Render</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,11 +462,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Computer Graphic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Soft Render</a>
+                <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
               </li>
             
             <div class="clearfix"></div>
