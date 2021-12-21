@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>SoftRender(0) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away.  I’ve been exposed t">
+  <meta name="description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away. I’ve been exposed to">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SoftRender(0)">
 <meta property="og:url" content="http://example.com/2021/10/01/SoftRender-0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away.  I’ve been exposed t">
+<meta property="og:description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away. I’ve been exposed to">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/YosefQiu/image/blob/master/uPic/2D.gif?raw=true">
 <meta property="og:image" content="https://github.com/YosefQiu/image/blob/master/uPic/3D.gif?raw=true">
 <meta property="article:published_time" content="2021-10-01T21:27:35.000Z">
-<meta property="article:modified_time" content="2021-12-19T22:29:41.129Z">
+<meta property="article:modified_time" content="2021-12-21T05:30:08.614Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="Computer Graphic">
@@ -29,7 +29,7 @@
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/bitbug_favicon.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -188,12 +188,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away. </p>
+        <p>In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away.</p>
 <p>I’ve been exposed to more graphics APIs like OpenGL, WebGL, DirectX, Vulkan. As more APIs are called, the adoption of a more profound understanding of computer graphics. Just taking advantage of this year’s holiday, I came up with a new idea. I intend to realize soft rendering from scratch, do not rely on the current graphics API, use pure C++, calculate on the CPU, and find the joy of drawing triangles again. Starting from the simplest mathematical class, I will imitate the rendering pipeline of OpenGL and implement it step by step.</p>
 <span id="more"></span>
 <p>At present, my plan is divided into two parts. The first part is 2D-related, and the second part is 3D-related. I want to focus on 2D first because there are many basic contents in 2D, such as the drawing of various 2D graphics, the filling of colors, the modification of line type and line width, and the geometric constraints of graphics (I intend to implement it with a population intelligence algorithm called harmony search algorithm to constrain the relationship of graphics)</p>
 <p>Then there is the 3D part, which will introduce the MVP matrix to make the graphics move and add lighting, materials, shadows, etc. Finally, I also asked myself to implement a model class. Using this class, we can load various models made by others, For example, Utah teapot (the first model I try to import is Utah teapot, because the University of Utah is my graduate school, hahaha :) )</p>
-<p>OK, let’s look at the final result—first, the 2D.<br><img src="https://github.com/YosefQiu/image/blob/master/uPic/2D.gif?raw=true" alt="img"><br>Then, the 3D.<br><img src="https://github.com/YosefQiu/image/blob/master/uPic/3D.gif?raw=true" alt="img">    </p>
+<p>OK, let’s look at the final result—first, the 2D.<br>
+<img src="https://github.com/YosefQiu/image/blob/master/uPic/2D.gif?raw=true" alt="img"><br>
+Then, the 3D.<br>
+<img src="https://github.com/YosefQiu/image/blob/master/uPic/3D.gif?raw=true" alt="img"></p>
 <p>OKKKK, See you guys next time. Next time I will introduce mathematics with CG</p>
 
       
@@ -300,7 +303,7 @@
     </div>
     <script>
 	var yiliaConfig = {
-		mathjax: true,
+		mathjax: [object Object],
 		isHome: false,
 		isPost: true,
 		isArchive: false,
@@ -393,7 +396,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
+                <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -401,7 +408,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
+                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -409,7 +420,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Paper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -418,18 +433,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Soft Render</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">PAPER</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
               </li>
             
             <div class="clearfix"></div>
