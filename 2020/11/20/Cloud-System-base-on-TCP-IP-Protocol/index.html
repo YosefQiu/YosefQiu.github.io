@@ -191,21 +191,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Because of the covid-19 epidemic last semester, many courses in our school were implemented by Dingding. In the process of using this software, I found that many functions of this software can be implemented independently. Therefore, I wrote this project based on Windows system. </p>
-<p>This project is divided into several modules:<br><span id="more"></span></p>
+        <p>Because of the covid-19 epidemic last semester, many courses in our school were implemented by Dingding. In the process of using this software, I found that many functions of this software can be implemented independently. Therefore, I wrote this project based on Windows system.</p>
+<p>This project is divided into several modules:</p>
+<span id="more"></span>
 <ul>
 <li>registration / login module</li>
 <li>adding friend chat module</li>
-<li>a file transmission module of the cloud disk.<br>In the cloud disk file transmission module, I mainly implemented :</li>
+<li>a file transmission module of the cloud disk.<br>
+In the cloud disk file transmission module, I mainly implemented :</li>
 <li>file upload (including normal upload, upload in milliseconds, breakpoint continuation upload)</li>
 <li>file download</li>
 <li>file sharing</li>
 <li>file extraction</li>
 <li>file deletion</li>
-<li>a log. </li>
+<li>a log.</li>
 </ul>
 <p>In this project, I only use the TCP protocol, because compared with UDP, TCP has security check, which will not lead to packet loss and disorder. TCP has a sliding window, which can use the data size that the other party can receive It is subject to congestion control. You can consider the situation of the whole network before transmitting data. However, TCP adopts the communication mode of data flow, so it may bring sticky packets. In the project, in order to solve this problem, I send the packet size first and then the packet content, so as to ensure that there are no sticky packets.</p>
-<p>When I first wrote this project, I didn’t consider the problem of high concurrency. However, recv is a blocking function. Whenever multiple clients send requests, recv will process the characters in the socket in turn. Only the current character is processed before processing the next task. In this way, the Xiao Liu of the server is relatively low. Therefore, I use the multithreaded model, Later, when I was writing another project, I found a better optimization scheme, using thread pool. At the beginning, I created threads with CPU cores * 2, so that they were blocked and did not occupy CPU time. When the drawing task came, I released the specified semaphore to wake up., For task delivery in the thread pool, I only use the producer consumer model. There are multiple producers and multiple consumers. The queue used is a ring queue written by me. </p>
+<p>When I first wrote this project, I didn’t consider the problem of high concurrency. However, recv is a blocking function. Whenever multiple clients send requests, recv will process the characters in the socket in turn. Only the current character is processed before processing the next task. In this way, the Xiao Liu of the server is relatively low. Therefore, I use the multithreaded model, Later, when I was writing another project, I found a better optimization scheme, using thread pool. At the beginning, I created threads with CPU cores * 2, so that they were blocked and did not occupy CPU time. When the drawing task came, I released the specified semaphore to wake up., For task delivery in the thread pool, I only use the producer consumer model. There are multiple producers and multiple consumers. The queue used is a ring queue written by me.</p>
 <p>When I look up some information on StackOverflow, I understand the IO multiplexing technology. Therefore, I have made some optimization for the project. When I use network connection, I only use the select model, The select model is used to receive data, and the thread pool is used to process data at the same time, so as to improve efficiency.</p>
 <p>Rencently, I optimized the project again. I cancelled the select model and used IOCP (completion port) instead. Maybe when I have time, I will refactor the code. I will put the server on Linux and use the epoll model.</p>
 
@@ -418,23 +420,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CV</a>
+                <a href="javascript:void(0)" class="js-tag color2">Operating System</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thesis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
+                <a href="javascript:void(0)" class="js-tag color1">ThreadPool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -446,7 +448,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thesis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CV</a>
               </li>
             
             <div class="clearfix"></div>
