@@ -6,15 +6,35 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: C++ | Yongfeng Qiu</title>
+  <title>SoftRender(1) Mathematics | Yongfeng Qiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Yongfeng Qiu">
-<meta property="og:url" content="http://example.com/tags/C/index.html">
+  <meta name="description" content="I’ve always wanted to sort out the mathematical knowledge related to computer graphics, but there are too many things involved (linear algebra, calculus, analysis, probability theory, analytical geome">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SoftRender(1) Mathematics">
+<meta property="og:url" content="http://example.com/2021/12/29/SoftRender-1-Mathematics/index.html">
 <meta property="og:site_name" content="Yongfeng Qiu">
+<meta property="og:description" content="I’ve always wanted to sort out the mathematical knowledge related to computer graphics, but there are too many things involved (linear algebra, calculus, analysis, probability theory, analytical geome">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_1%20%5C%5C%20b_1%20%5C%5C%20c_1%20%5Cend%7Bmatrix%7D%5Cright%5D%20%2B%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_2%20%5C%5C%20b_2%20%5C%5C%20c_2%20%5Cend%7Bmatrix%7D%5Cright%5D%20-%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_3%20%5C%5C%20b_3%20%5C%5Cc_3%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_1%20%2B%20a_2%20-%20a_3%20%5C%5C%20b_1%20%2B%20b_2%20-%20b_3%20%5C%5C%20c_1%20%2B%20c_2%20-%20c_3%20%5Cend%7Bmatrix%7D%5Cright%5D%0A">
+<meta property="og:image" content="https://math.now.sh?from=k%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5C%5C%20z%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5C%5C%20z%20%5Cend%7Bmatrix%7D%5Cright%5D%20k%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20kx%20%5C%5C%20ky%20%5C%5C%20kz%20%5Cend%7Bmatrix%7D%5Cright%5D%0A">
+<meta property="og:image" content="https://math.now.sh?from=%7C%7Cv%7C%7C%20%3D%20%5Csqrt%7Bx_1%5E%7B2%7D%20%2B%20x_2%5E%7B2%7D%20%2B%20x_3%5E%7B2%7D%20%2B%20....%20%2B%20x_n%5E%7B2%7D%7D%0A">
+<meta property="og:image" content="https://math.now.sh?from=V%20%3D%20%5Cfrac%7Bv%7D%7B%7C%7Cv%7C%7C%7D%20%20%0A">
+<meta property="og:image" content="https://math.now.sh?from=distance%28a%2C%20b%29%20%3D%20%5Csqrt%7B(b_1%20-%20a_1%20)%5E2%20%2B%20(b_2%20-%20a_2)%5E2%20%2B%20(b_3%20-%20a_3)%5E2%20%2B%20...%20%2B%20(b_n%20-%20a_n)%5E2%7D%0A">
+<meta property="og:image" content="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a%20%5C%5C%20b%20%5C%5C%20c%20%5Cend%7Bmatrix%7D%5Cright%5D%20%5Ccdot%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5C%5C%20z%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20ax%20%2B%20by%20%2B%20cz%20%0A">
+<meta property="og:image" content="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a%20%5C%5C%20b%20%5C%5C%20c%20%5Cend%7Bmatrix%7D%5Cright%5D%20%5Ctimes%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5C%5C%20z%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20bz%20-ay%20%5C%5C%20cx%20-%20ay%20%5C%5C%20ay%20-%20by%20%5Cend%7Bmatrix%7D%5Cright%5D%0A">
+<meta property="og:image" content="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%201%20%26%202%20%5C%5C%203%20%26%204%20%5Cend%7Bmatrix%7D%5Cright%5D%5ET%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%201%20%26%203%20%5C%5C%202%20%26%204%20%5Cend%7Bmatrix%7D%5Cright%5D%0A">
+<meta property="og:image" content="https://math.now.sh?from=kM%20%3D%20k%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%26%20y%20%26%20z%20%5C%5C%20a%20%26%20b%20%26%20c%20%5C%5C%20l%20%26%20m%20%26%20n%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20kx%20%26%20ky%20%26%20kz%20%5C%5C%20ka%20%26%20kb%20%26%20kc%20%5C%5C%20kl%20%26%20km%20%26%20kn%20%5Cend%7Bmatrix%7D%5Cright%5D%20%0A">
+<meta property="og:image" content="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a%20%26%20b%20%5Cend%7Bmatrix%7D%5Cright%5D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20ax%2Bby%20%5Cend%7Bmatrix%7D%5Cright%5D%20%0A">
+<meta property="og:image" content="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5Cend%7Bmatrix%7D%5Cright%5D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a%20%26%20b%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20xa%20%26%20xb%20%5C%5C%20ya%20%26%20yb%20%5Cend%7Bmatrix%7D%5Cright%5D%20%0A">
+<meta property="article:published_time" content="2021-12-29T22:55:23.000Z">
+<meta property="article:modified_time" content="2022-01-01T00:13:15.549Z">
 <meta property="article:author" content="Yongfeng Qiu">
+<meta property="article:tag" content="Article">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Computer Graphic">
+<meta property="article:tag" content="Soft Render">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_1%20%5C%5C%20b_1%20%5C%5C%20c_1%20%5Cend%7Bmatrix%7D%5Cright%5D%20%2B%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_2%20%5C%5C%20b_2%20%5C%5C%20c_2%20%5Cend%7Bmatrix%7D%5Cright%5D%20-%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_3%20%5C%5C%20b_3%20%5C%5Cc_3%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_1%20%2B%20a_2%20-%20a_3%20%5C%5C%20b_1%20%2B%20b_2%20-%20b_3%20%5C%5C%20c_1%20%2B%20c_2%20-%20c_3%20%5Cend%7Bmatrix%7D%5Cright%5D%0A">
   
     <link rel="alternative" href="/atom.xml" title="Yongfeng Qiu" type="application/atom+xml">
   
@@ -164,36 +184,92 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-SoftRender-1-Mathematics" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      SoftRender(1) Mathematics
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/12/29/SoftRender-1-Mathematics/" class="archive-article-date">
+
+        
+        <a href="/2021/12/29/SoftRender-1-Mathematics/" class="archive-article-date">
   	<time datetime="2021-12-29T22:55:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-29</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/12/29/SoftRender-1-Mathematics/">SoftRender(1) Mathematics</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’ve always wanted to sort out the mathematical knowledge related to computer graphics, but there are too many things involved (linear algebra, calculus, analysis, probability theory, analytical geometry, differential geometry, discrete mathematics, topology, etc.) and even we need to know some physical knowledge (mechanics, optics, etc.).<br>
+Before I start, I recommend some books, which I personally think are very good. This blog can even be regarded as my reading notes on these books.</p>
+<span id="more"></span>
+<ul>
+<li>[1] Fletcher Dunn, Lan Parberry.3D Math Primer for Graphics and Game Development,Second Edition.tsinghua university press.2020.5</li>
+<li>[2] Peter Shirley, Steve Marschner.Fundamentals of Computer Graphics,Fifth Edition. CRC press.2021.</li>
+<li>[3] Matt Pharr.Physically based rendering from theory to implementation, Third Edition.Morgan kaufmann publishers.2017</li>
+<li>[4] Elaine Cohen.The materials of Mathematical Foundations of  of Computer Graphics and Visualization.2021</li>
+</ul>
+<hr>
+<h2 id="Vector">Vector</h2>
+<p>A vector is a directed line segment with <strong>Magnitude</strong> and <strong>Direction</strong>.</p>
+<h4 id="Addition-and-subtraction">Addition and subtraction</h4>
+<p style=""><img src="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_1%20%5C%5C%20b_1%20%5C%5C%20c_1%20%5Cend%7Bmatrix%7D%5Cright%5D%20%2B%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_2%20%5C%5C%20b_2%20%5C%5C%20c_2%20%5Cend%7Bmatrix%7D%5Cright%5D%20-%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_3%20%5C%5C%20b_3%20%5C%5Cc_3%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a_1%20%2B%20a_2%20-%20a_3%20%5C%5C%20b_1%20%2B%20b_2%20-%20b_3%20%5C%5C%20c_1%20%2B%20c_2%20-%20c_3%20%5Cend%7Bmatrix%7D%5Cright%5D%0A" /></p><h4 id="Scalar-multiplication">Scalar multiplication</h4>
+<p style=""><img src="https://math.now.sh?from=k%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5C%5C%20z%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5C%5C%20z%20%5Cend%7Bmatrix%7D%5Cright%5D%20k%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20kx%20%5C%5C%20ky%20%5C%5C%20kz%20%5Cend%7Bmatrix%7D%5Cright%5D%0A" /></p><h4 id="Magnitude">Magnitude</h4>
+<p>There is no definite magnitude or direction in the vector. For example, the magnitude of the two-dimensional vector [3,4] is neither 3 nor 4, but 5. Since the magnitude of the vector is not explicitly expressed, it must be calculated. The magnitude of a vector is also called the length or norm of the vector.</p>
+<p style=""><img src="https://math.now.sh?from=%7C%7Cv%7C%7C%20%3D%20%5Csqrt%7Bx_1%5E%7B2%7D%20%2B%20x_2%5E%7B2%7D%20%2B%20x_3%5E%7B2%7D%20%2B%20....%20%2B%20x_n%5E%7B2%7D%7D%0A" /></p><p>For many vectors, we only focus on their direction rather than magnitude. In this case, it is more convenient to use <strong>Unit Vectors</strong>, which also called <strong>Normalized Vector</strong> or <strong>Normal</strong>.</p>
+<p style=""><img src="https://math.now.sh?from=V%20%3D%20%5Cfrac%7Bv%7D%7B%7C%7Cv%7C%7C%7D%20%20%0A" /></p><h4 id="Distance">Distance</h4>
+<p style=""><img src="https://math.now.sh?from=distance%28a%2C%20b%29%20%3D%20%5Csqrt%7B(b_1%20-%20a_1%20)%5E2%20%2B%20(b_2%20-%20a_2)%5E2%20%2B%20(b_3%20-%20a_3)%5E2%20%2B%20...%20%2B%20(b_n%20-%20a_n)%5E2%7D%0A" /></p><h4 id="Inner-Product">Inner Product</h4>
+<p>Inner Product also called Dot Product</p>
+<p style=""><img src="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a%20%5C%5C%20b%20%5C%5C%20c%20%5Cend%7Bmatrix%7D%5Cright%5D%20%5Ccdot%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5C%5C%20z%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20ax%20%2B%20by%20%2B%20cz%20%0A" /></p><p>Dot Product(a, b) is equally b the signed length of the projection trace on any line parallel to a, multiplied by the length of a.</p>
+<h4 id="Outter-Product">Outter Product</h4>
+<p>Also called Cross Product.</p>
+<p style=""><img src="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a%20%5C%5C%20b%20%5C%5C%20c%20%5Cend%7Bmatrix%7D%5Cright%5D%20%5Ctimes%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5C%5C%20z%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20bz%20-ay%20%5C%5C%20cx%20-%20ay%20%5C%5C%20ay%20-%20by%20%5Cend%7Bmatrix%7D%5Cright%5D%0A" /></p><p>The cross product produces a vector that is perpendicular to the original two vectors.</p>
+<h2 id="Matrix">Matrix</h2>
+<h4 id="Transpose">Transpose</h4>
+<p style=""><img src="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%201%20%26%202%20%5C%5C%203%20%26%204%20%5Cend%7Bmatrix%7D%5Cright%5D%5ET%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%201%20%26%203%20%5C%5C%202%20%26%204%20%5Cend%7Bmatrix%7D%5Cright%5D%0A" /></p><h4 id="Scalar-multiplication-2">Scalar multiplication</h4>
+<p style=""><img src="https://math.now.sh?from=kM%20%3D%20k%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%26%20y%20%26%20z%20%5C%5C%20a%20%26%20b%20%26%20c%20%5C%5C%20l%20%26%20m%20%26%20n%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20kx%20%26%20ky%20%26%20kz%20%5C%5C%20ka%20%26%20kb%20%26%20kc%20%5C%5C%20kl%20%26%20km%20%26%20kn%20%5Cend%7Bmatrix%7D%5Cright%5D%20%0A" /></p><h4 id="Multiplication">Multiplication</h4>
+<p style=""><img src="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a%20%26%20b%20%5Cend%7Bmatrix%7D%5Cright%5D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20ax%2Bby%20%5Cend%7Bmatrix%7D%5Cright%5D%20%0A" /></p><p style=""><img src="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5Cend%7Bmatrix%7D%5Cright%5D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a%20%26%20b%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20xa%20%26%20xb%20%5C%5C%20ya%20%26%20yb%20%5Cend%7Bmatrix%7D%5Cright%5D%20%0A" /></p><h4 id="Vector-multiplication">Vector multiplication</h4>
+<p>We can think of a vector as a 1 x n matrix or an n x 1 matrix.</p>
+<h2 id="Transformation">Transformation</h2>
+<h4 id="Translate">Translate</h4>
+<h4 id="Rotation">Rotation</h4>
+<h4 id="Scale">Scale</h4>
+<h4 id="Projection">Projection</h4>
+<h5 id="Orthographic-Projection">Orthographic Projection</h5>
+<h5 id="Perspective-Projection">Perspective Projection</h5>
+<h4 id="Shearing">Shearing</h4>
+<h2 id="Coordinate-space">Coordinate space</h2>
+<h4 id="World-Space">World Space</h4>
+<h4 id="Local-Space">Local Space</h4>
+<h4 id="Model-Space">Model Space</h4>
+<h4 id="Camera-Space">Camera Space</h4>
+<h5 id="Model-Transform">Model Transform</h5>
+<h5 id="View-Transform">View Transform</h5>
+<h5 id="Projection-Transform">Projection Transform</h5>
+<h5 id="LookAt">LookAt</h5>
+<h2 id="Geometry">Geometry</h2>
+<h4 id="BoundingBox-AABB">BoundingBox(AABB)</h4>
+<h4 id="Plane">Plane</h4>
+<h4 id="Triangle">Triangle</h4>
+<h5 id="Barycentric-coordinates">Barycentric coordinates</h5>
+<h2 id="Curve">Curve</h2>
+<h4 id="Parametric-Polynomial-Curve">Parametric Polynomial Curve</h4>
+<h4 id="Linear-Interpolation">Linear Interpolation</h4>
+<h4 id="Hermite-Curve">Hermite Curve</h4>
+<h4 id="Bezier-Curve">Bezier Curve</h4>
+<h4 id="B-spline-Curve">B-spline Curve</h4>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -217,267 +293,55 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/12/18/Ray-Tracing-0/" class="archive-article-date">
-  	<time datetime="2021-12-18T18:55:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/12/18/Ray-Tracing-0/">Ray Tracing(0)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Article</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ray Tracing</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/10/31/Multithreading-programming-and-resource-synchronization/" class="archive-article-date">
-  	<time datetime="2021-10-31T17:56:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/10/31/Multithreading-programming-and-resource-synchronization/">Multithreading programming and resource synchronization</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Article</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Operating System</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ThreadPool</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/10/01/SoftRender-0/" class="archive-article-date">
-  	<time datetime="2021-10-01T21:27:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/10/01/SoftRender-0/">SoftRender(0)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Article</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Computer Graphic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Soft Render</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/20/3D-model-retrieval-based-on-hand-drawn-sketch/" class="archive-article-date">
-  	<time datetime="2021-06-20T18:18:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/20/3D-model-retrieval-based-on-hand-drawn-sketch/">3D model retrieval based on hand drawn sketch</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Article</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">3D model retrieval</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/20/Cloud-System-base-on-TCP-IP-Protocol/" class="archive-article-date">
-  	<time datetime="2020-11-20T18:03:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/20/Cloud-System-base-on-TCP-IP-Protocol/">Cloud System base on TCP/IP Protocol</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Article</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">TCP/IP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/12/18/Ray-Tracing-0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ray Tracing(0)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -500,9 +364,9 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
