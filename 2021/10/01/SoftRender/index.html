@@ -6,22 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>SoftRender(1) Mathematics | Yongfeng Qiu</title>
+  <title>SoftRender | Yongfeng Qiu</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="I’ve always wanted to sort out the mathematical knowledge related to computer graphics, but there are too many things involved (linear algebra, calculus, analysis, probability theory, analytical geome">
+  <meta name="description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away. I’ve been exposed to">
 <meta name="keywords" content="Article,C++,Computer Graphic,Soft Render">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SoftRender(1) Mathematics">
-<meta property="og:url" content="http://example.com/2021/12/29/SoftRender-1-Mathematics/index.html">
+<meta property="og:title" content="SoftRender">
+<meta property="og:url" content="http://example.com/2021/10/01/SoftRender/index.html">
 <meta property="og:site_name" content="Yongfeng Qiu">
-<meta property="og:description" content="I’ve always wanted to sort out the mathematical knowledge related to computer graphics, but there are too many things involved (linear algebra, calculus, analysis, probability theory, analytical geome">
+<meta property="og:description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away. I’ve been exposed to">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2022-01-01T00:13:15.540Z">
+<meta property="og:image" content="https://github.com/YosefQiu/image/blob/master/uPic/2D.gif?raw=true">
+<meta property="og:image" content="https://github.com/YosefQiu/image/blob/master/uPic/3D.gif?raw=true">
+<meta property="og:updated_time" content="2022-07-19T04:00:48.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SoftRender(1) Mathematics">
-<meta name="twitter:description" content="I’ve always wanted to sort out the mathematical knowledge related to computer graphics, but there are too many things involved (linear algebra, calculus, analysis, probability theory, analytical geome">
+<meta name="twitter:title" content="SoftRender">
+<meta name="twitter:description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away. I’ve been exposed to">
+<meta name="twitter:image" content="https://github.com/YosefQiu/image/blob/master/uPic/2D.gif?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="Yongfeng Qiu" type="application/atom+xml">
   
@@ -224,14 +227,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SoftRender-1-Mathematics" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SoftRender" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      SoftRender(1) Mathematics
+      SoftRender
     </h1>
   
 
@@ -243,8 +246,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2021/12/29/SoftRender-1-Mathematics/" class="archive-article-date">
-        <time datetime="2021-12-29T22:55:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-29</time>
+<a href="/2021/10/01/SoftRender/" class="archive-article-date">
+        <time datetime="2021-10-01T21:27:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-01</time>
 </a>
 
   
@@ -253,34 +256,17 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>I’ve always wanted to sort out the mathematical knowledge related to computer graphics, but there are too many things involved (linear algebra, calculus, analysis, probability theory, analytical geometry, differential geometry, discrete mathematics, topology, etc.) and even we need to know some physical knowledge (mechanics, optics, etc.).<br>Before I start, I recommend some books, which I personally think are very good. This blog can even be regarded as my reading notes on these books.<br><a id="more"></a></p>
-<ul>
-<li>[1] Fletcher Dunn, Lan Parberry.3D Math Primer for Graphics and Game Development,Second Edition.tsinghua university press.2020.5</li>
-<li>[2] Peter Shirley, Steve Marschner.Fundamentals of Computer Graphics,Fifth Edition. CRC press.2021.</li>
-<li>[3] Matt Pharr.Physically based rendering from theory to implementation, Third Edition.Morgan kaufmann publishers.2017</li>
-<li>[4] Elaine Cohen.The materials of Mathematical Foundations of  of Computer Graphics and Visualization.2021 </li>
-</ul>
-<hr>
-<h2 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h2><p>A vector is a directed line segment with <strong>Magnitude</strong> and <strong>Direction</strong>.   </p>
-<h4 id="Addition-and-subtraction"><a href="#Addition-and-subtraction" class="headerlink" title="Addition and subtraction"></a>Addition and subtraction</h4><script type="math/tex; mode=display">
-\left[\begin{matrix} a_1 \\ b_1 \\ c_1 \end{matrix}\right] + \left[\begin{matrix} a_2 \\ b_2 \\ c_2 \end{matrix}\right] - \left[\begin{matrix} a_3 \\ b_3 \\c_3 \end{matrix}\right] = \left[\begin{matrix} a_1 + a_2 - a_3 \\ b_1 + b_2 - b_3 \\ c_1 + c_2 - c_3 \end{matrix}\right]</script><h4 id="Scalar-multiplication"><a href="#Scalar-multiplication" class="headerlink" title="Scalar multiplication"></a>Scalar multiplication</h4><script type="math/tex; mode=display">
-k \left[\begin{matrix} x \\ y \\ z \end{matrix}\right] = \left[\begin{matrix} x \\ y \\ z \end{matrix}\right] k = \left[\begin{matrix} kx \\ ky \\ kz \end{matrix}\right]</script><h4 id="Magnitude"><a href="#Magnitude" class="headerlink" title="Magnitude"></a>Magnitude</h4><p>There is no definite magnitude or direction in the vector. For example, the magnitude of the two-dimensional vector [3,4] is neither 3 nor 4, but 5. Since the magnitude of the vector is not explicitly expressed, it must be calculated. The magnitude of a vector is also called the length or norm of the vector.  </p>
-<script type="math/tex; mode=display">
-||v|| = \sqrt{x_1^{2} + x_2^{2} + x_3^{2} + .... + x_n^{2}}</script><p>For many vectors, we only focus on their direction rather than magnitude. In this case, it is more convenient to use <strong>Unit Vectors</strong>, which also called <strong>Normalized Vector</strong> or <strong>Normal</strong>.</p>
-<script type="math/tex; mode=display">
-V = \frac{v}{||v||}</script><h4 id="Distance"><a href="#Distance" class="headerlink" title="Distance"></a>Distance</h4><script type="math/tex; mode=display">
-distance(a, b) = \sqrt{(b_1 - a_1 )^2 + (b_2 - a_2)^2 + (b_3 - a_3)^2 + ... + (b_n - a_n)^2}</script><h4 id="Inner-Product"><a href="#Inner-Product" class="headerlink" title="Inner Product"></a>Inner Product</h4><p>Inner Product also called Dot Product</p>
-<script type="math/tex; mode=display">
-\left[\begin{matrix} a \\ b \\ c \end{matrix}\right] \cdot \left[\begin{matrix} x \\ y \\ z \end{matrix}\right] = ax + by + cz</script><p>Dot Product(a, b) is equally b the signed length of the projection trace on any line parallel to a, multiplied by the length of a.    </p>
-<h4 id="Outter-Product"><a href="#Outter-Product" class="headerlink" title="Outter Product"></a>Outter Product</h4><p>Also called Cross Product.</p>
-<script type="math/tex; mode=display">
-\left[\begin{matrix} a \\ b \\ c \end{matrix}\right] \times \left[\begin{matrix} x \\ y \\ z \end{matrix}\right] = \left[\begin{matrix} bz -ay \\ cx - ay \\ ay - by \end{matrix}\right]</script><p>The cross product produces a vector that is perpendicular to the original two vectors.   </p>
-<h2 id="Matrix"><a href="#Matrix" class="headerlink" title="Matrix"></a>Matrix</h2><h4 id="Transpose"><a href="#Transpose" class="headerlink" title="Transpose"></a>Transpose</h4><script type="math/tex; mode=display">
-\left[\begin{matrix} 1 & 2 \\ 3 & 4 \end{matrix}\right]^T = \left[\begin{matrix} 1 & 3 \\ 2 & 4 \end{matrix}\right]</script><h4 id="Scalar-multiplication-1"><a href="#Scalar-multiplication-1" class="headerlink" title="Scalar multiplication"></a>Scalar multiplication</h4><script type="math/tex; mode=display">
-kM = k\left[\begin{matrix} x & y & z \\ a & b & c \\ l & m & n \end{matrix}\right] = \left[\begin{matrix} kx & ky & kz \\ ka & kb & kc \\ kl & km & kn \end{matrix}\right]</script><h4 id="Multiplication"><a href="#Multiplication" class="headerlink" title="Multiplication"></a>Multiplication</h4><script type="math/tex; mode=display">
-\left[\begin{matrix} a & b \end{matrix}\right] \left[\begin{matrix} x \\ y \end{matrix}\right] = \left[\begin{matrix} ax+by \end{matrix}\right]</script><script type="math/tex; mode=display">
-\left[\begin{matrix} x \\ y \end{matrix}\right] \left[\begin{matrix} a & b \end{matrix}\right] = \left[\begin{matrix} xa & xb \\ ya & yb \end{matrix}\right]</script><h4 id="Vector-multiplication"><a href="#Vector-multiplication" class="headerlink" title="Vector multiplication"></a>Vector multiplication</h4><p>We can think of a vector as a 1 x n matrix or an n x 1 matrix.   </p>
-<h2 id="Transformation"><a href="#Transformation" class="headerlink" title="Transformation"></a>Transformation</h2><h4 id="Translate"><a href="#Translate" class="headerlink" title="Translate"></a>Translate</h4><h4 id="Rotation"><a href="#Rotation" class="headerlink" title="Rotation"></a>Rotation</h4><h4 id="Scale"><a href="#Scale" class="headerlink" title="Scale"></a>Scale</h4><h4 id="Projection"><a href="#Projection" class="headerlink" title="Projection"></a>Projection</h4><h5 id="Orthographic-Projection"><a href="#Orthographic-Projection" class="headerlink" title="Orthographic Projection"></a>Orthographic Projection</h5><h5 id="Perspective-Projection"><a href="#Perspective-Projection" class="headerlink" title="Perspective Projection"></a>Perspective Projection</h5><h4 id="Shearing"><a href="#Shearing" class="headerlink" title="Shearing"></a>Shearing</h4><h2 id="Coordinate-space"><a href="#Coordinate-space" class="headerlink" title="Coordinate space"></a>Coordinate space</h2><h4 id="World-Space"><a href="#World-Space" class="headerlink" title="World Space"></a>World Space</h4><h4 id="Local-Space"><a href="#Local-Space" class="headerlink" title="Local Space"></a>Local Space</h4><h4 id="Model-Space"><a href="#Model-Space" class="headerlink" title="Model Space"></a>Model Space</h4><h4 id="Camera-Space"><a href="#Camera-Space" class="headerlink" title="Camera Space"></a>Camera Space</h4><h5 id="Model-Transform"><a href="#Model-Transform" class="headerlink" title="Model Transform"></a>Model Transform</h5><h5 id="View-Transform"><a href="#View-Transform" class="headerlink" title="View Transform"></a>View Transform</h5><h5 id="Projection-Transform"><a href="#Projection-Transform" class="headerlink" title="Projection Transform"></a>Projection Transform</h5><h5 id="LookAt"><a href="#LookAt" class="headerlink" title="LookAt"></a>LookAt</h5><h2 id="Geometry"><a href="#Geometry" class="headerlink" title="Geometry"></a>Geometry</h2><h4 id="BoundingBox-AABB"><a href="#BoundingBox-AABB" class="headerlink" title="BoundingBox(AABB)"></a>BoundingBox(AABB)</h4><h4 id="Plane"><a href="#Plane" class="headerlink" title="Plane"></a>Plane</h4><h4 id="Triangle"><a href="#Triangle" class="headerlink" title="Triangle"></a>Triangle</h4><h5 id="Barycentric-coordinates"><a href="#Barycentric-coordinates" class="headerlink" title="Barycentric coordinates"></a>Barycentric coordinates</h5><h2 id="Curve"><a href="#Curve" class="headerlink" title="Curve"></a>Curve</h2><h4 id="Parametric-Polynomial-Curve"><a href="#Parametric-Polynomial-Curve" class="headerlink" title="Parametric Polynomial Curve"></a>Parametric Polynomial Curve</h4><h4 id="Linear-Interpolation"><a href="#Linear-Interpolation" class="headerlink" title="Linear Interpolation"></a>Linear Interpolation</h4><h4 id="Hermite-Curve"><a href="#Hermite-Curve" class="headerlink" title="Hermite Curve"></a>Hermite Curve</h4><h4 id="Bezier-Curve"><a href="#Bezier-Curve" class="headerlink" title="Bezier Curve"></a>Bezier Curve</h4><h4 id="B-spline-Curve"><a href="#B-spline-Curve" class="headerlink" title="B-spline Curve"></a>B-spline Curve</h4>
+    <p>In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away.</p>
+<p>I’ve been exposed to more graphics APIs like OpenGL, WebGL, DirectX, Vulkan. As more APIs are called, the adoption of a more profound understanding of computer graphics. Just taking advantage of this year’s holiday, I came up with a new idea. I intend to realize soft rendering from scratch, do not rely on the current graphics API, use pure C++, calculate on the CPU, and find the joy of drawing triangles again. Starting from the simplest mathematical class, I will imitate the rendering pipeline of OpenGL and implement it step by step.</p>
+<a id="more"></a>
+<p>At present, my plan is divided into two parts. The first part is 2D-related, and the second part is 3D-related. I want to focus on 2D first because there are many basic contents in 2D, such as the drawing of various 2D graphics, the filling of colors, the modification of line type and line width, and the geometric constraints of graphics (I intend to implement it with a population intelligence algorithm called harmony search algorithm to constrain the relationship of graphics)</p>
+<p>Then there is the 3D part, which will introduce the MVP matrix to make the graphics move and add lighting, materials, shadows, etc. Finally, I also asked myself to implement a model class. Using this class, we can load various models made by others, For example, Utah teapot (the first model I try to import is Utah teapot, because the University of Utah is my graduate school, hahaha :) )</p>
+<p>OK, let’s look at the final result—first, the 2D.<br>
+<img src="https://github.com/YosefQiu/image/blob/master/uPic/2D.gif?raw=true" alt="img"><br>
+Then, the 3D.<br>
+<img src="https://github.com/YosefQiu/image/blob/master/uPic/3D.gif?raw=true" alt="img"></p>
+<p>OKKKK, See you guys next time. Next time I will introduce mathematics with CG</p>
+
     
 
     
@@ -327,9 +313,18 @@ kM = k\left[\begin{matrix} x & y & z \\ a & b & c \\ l & m & n \end{matrix}\righ
 
 <nav id="article-nav">
   
+    <a href="/2021/10/18/Yellowstone-National-Park/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Yellowstone National Park
+        
+      </div>
+    </a>
   
-    <a href="/2021/12/18/Ray-Tracing-0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Ray Tracing(0)</div>
+  
+    <a href="/2021/07/02/基于手绘草图的三维模型检索-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于手绘草图的三维模型检索</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -524,15 +519,15 @@ kM = k\left[\begin{matrix} x & y & z \\ a & b & c \\ l & m & n \end{matrix}\righ
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">CV</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,7 +539,11 @@ kM = k\left[\begin{matrix} x & y & z \\ a & b & c \\ l & m & n \end{matrix}\righ
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
+                <a href="javascript:void(0)" class="js-tag color2">Thesis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,11 +555,7 @@ kM = k\left[\begin{matrix} x & y & z \\ a & b & c \\ l & m & n \end{matrix}\righ
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thesis</a>
+                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
               </li>
             
             <div class="clearfix"></div>
