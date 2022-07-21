@@ -6,17 +6,42 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021/7 | Yongfeng Qiu</title>
+  <title>Lihgt Base on OpenGL | Yongfeng Qiu</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Yongfeng Qiu">
-<meta property="og:url" content="http://example.com/archives/2021/07/index.html">
+  <meta name="description" content="Concepts First of all, let’s review some basic concepts. Radiant Flux : energy per unit time, say it’s measured in watts. Unit is . Irradiance : the flux incident on the surface per unit surface area.">
+<meta name="keywords" content="Article,C++,OpenGl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lihgt Base on OpenGL">
+<meta property="og:url" content="http://example.com/2022/07/20/Lihgt-Base-on-OpenGL/index.html">
 <meta property="og:site_name" content="Yongfeng Qiu">
+<meta property="og:description" content="Concepts First of all, let’s review some basic concepts. Radiant Flux : energy per unit time, say it’s measured in watts. Unit is . Irradiance : the flux incident on the surface per unit surface area.">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://math.now.sh?inline=%5CPhi">
+<meta property="og:image" content="https://math.now.sh?inline=W">
+<meta property="og:image" content="https://math.now.sh?from=%5CPhi%20%3D%20%5Cfrac%7BdQ%7D%7Bdt%7D%0A">
+<meta property="og:image" content="https://math.now.sh?inline=E">
+<meta property="og:image" content="https://math.now.sh?from=E%20%3D%20%5Cfrac%7B%5CPhi%7D%7BA%7D%20%3D%20%5Cfrac%7Bd%5CPhi%7D%7BdA%7D%0A">
+<meta property="og:image" content="https://math.now.sh?inline=B">
+<meta property="og:image" content="https://math.now.sh?inline=M">
+<meta property="og:image" content="https://math.now.sh?from=M%20%3D%20B%20%3D%20%5Cfrac%7B%5CPhi%7D%7BA%7D%20%3D%20%5Cfrac%7Bd%5CPhi%7D%7BdA%7D%0A">
+<meta property="og:image" content="https://math.now.sh?inline=L">
+<meta property="og:image" content="https://math.now.sh?from=L%20%3D%20%5Cfrac%7Bd%5E2%5CPhi%7D%7BdwdA_%7B%5Cbot%7D%7D%20%3D%20%5Cfrac%7Bd%5E2%5CPhi%7D%7BdwdA%5Ccos%5Ctheta%7D%0A">
+<meta property="og:image" content="https://math.now.sh?from=L%20%5Ccdot%20dw%20%5Ccos%5Ctheta%20%3D%20%5Cfrac%7Bd%5E2%5CPhi%7D%7BdA%7D%20%3D%20dE%0A">
+<meta property="og:image" content="https://math.now.sh?from=L%20%5Ccdot%20dwdA%5Ccos%5Ctheta%20%3D%20d%5E2%5CPhi%0A">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/brdf.png">
+<meta property="og:image" content="https://math.now.sh?from=E%20%3D%20%5Cint_%7B%5COmega%7DL%28P%5Cleftarrow%20w_i%29%5Ccos%5Ctheta_idw%0A">
+<meta property="og:image" content="https://math.now.sh?from=dE%28P%2C%20w_i%29%20%3D%20L_i(P%2C%20w_i)%5Ccos%5Ctheta_idw_i%0A">
+<meta property="og:image" content="https://math.now.sh?from=f_r%28P%2C%20w_o%2C%20w_i%29%20%3D%20%5Cfrac%7BdL_o(P%2C%20w_o)%7D%7BdE(P%2C%20w_i)%7D%20%3D%20%5Cfrac%7BdL_o(P%2C%20w_o)%7D%7BL_i(P%2C%20w_i)%5Ccos%5Ctheta_idw_i%7D%0A">
+<meta property="og:image" content="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)dE(P%20%5Cleftarrow%20w_i)%0A">
+<meta property="og:image" content="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)%5Ccos%5Ctheta_idw_i%0A">
+<meta property="og:image" content="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)%5C(N%20%5Ccdot%20w_i)dw_i%0A">
+<meta property="og:updated_time" content="2022-07-21T05:58:39.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yongfeng Qiu">
+<meta name="twitter:title" content="Lihgt Base on OpenGL">
+<meta name="twitter:description" content="Concepts First of all, let’s review some basic concepts. Radiant Flux : energy per unit time, say it’s measured in watts. Unit is . Irradiance : the flux incident on the surface per unit surface area.">
+<meta name="twitter:image" content="https://math.now.sh?inline=%5CPhi">
   
     <link rel="alternative" href="/atom.xml" title="Yongfeng Qiu" type="application/atom+xml">
   
@@ -222,65 +247,124 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Lihgt-Base-on-OpenGL" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/07/02/基于手绘草图的三维模型检索-1/" class="archive-article-date">
-        <time datetime="2021-07-02T20:39:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-02</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/07/02/基于手绘草图的三维模型检索-1/">基于手绘草图的三维模型检索</a>
-	
+    <h1 class="article-title" itemprop="name">
+      Lihgt Base on OpenGL
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+<a href="/2022/07/20/Lihgt-Base-on-OpenGL/" class="archive-article-date">
+        <time datetime="2022-07-20T16:07:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-20</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="Concepts">Concepts</h3>
+<p>First of all, let’s review some basic concepts.<br>
+<strong>Radiant Flux <img src="https://math.now.sh?inline=%5CPhi" style="display:inline-block;margin: 0;"></strong>: energy per unit time, say it’s measured in watts. Unit is <img src="https://math.now.sh?inline=W" style="display:inline-block;margin: 0;">.</p>
+<p style><img src="https://math.now.sh?from=%5CPhi%20%3D%20%5Cfrac%7BdQ%7D%7Bdt%7D%0A"></p><p><strong>Irradiance <img src="https://math.now.sh?inline=E" style="display:inline-block;margin: 0;"></strong>: the flux incident on the surface per unit surface area.</p>
+<p style><img src="https://math.now.sh?from=E%20%3D%20%5Cfrac%7B%5CPhi%7D%7BA%7D%20%3D%20%5Cfrac%7Bd%5CPhi%7D%7BdA%7D%0A"></p><a id="more"></a>
+<p><strong>Radiant Exitance <img src="https://math.now.sh?inline=B" style="display:inline-block;margin: 0;"> or <img src="https://math.now.sh?inline=M" style="display:inline-block;margin: 0;"></strong>: or called radiosity, the flux leaving a surface per unit surface area.</p>
+<p style><img src="https://math.now.sh?from=M%20%3D%20B%20%3D%20%5Cfrac%7B%5CPhi%7D%7BA%7D%20%3D%20%5Cfrac%7Bd%5CPhi%7D%7BdA%7D%0A"></p><p><strong>Radiance <img src="https://math.now.sh?inline=L" style="display:inline-block;margin: 0;"></strong>: the flux per unit area normal to the beam per solid angle.</p>
+<p style><img src="https://math.now.sh?from=L%20%3D%20%5Cfrac%7Bd%5E2%5CPhi%7D%7BdwdA_%7B%5Cbot%7D%7D%20%3D%20%5Cfrac%7Bd%5E2%5CPhi%7D%7BdwdA%5Ccos%5Ctheta%7D%0A"></p><p style><img src="https://math.now.sh?from=L%20%5Ccdot%20dw%20%5Ccos%5Ctheta%20%3D%20%5Cfrac%7Bd%5E2%5CPhi%7D%7BdA%7D%20%3D%20dE%0A"></p><p style><img src="https://math.now.sh?from=L%20%5Ccdot%20dwdA%5Ccos%5Ctheta%20%3D%20d%5E2%5CPhi%0A"></p><p><strong>BRDF</strong>: the bidirectional reflectance distribution function gives a formalism for describing reflection a surface.<br>
+<img src="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/brdf.png" alt="img"><br>
+Therefore,</p>
+<p style><img src="https://math.now.sh?from=E%20%3D%20%5Cint_%7B%5COmega%7DL%28P%5Cleftarrow%20w_i%29%5Ccos%5Ctheta_idw%0A"></p><p style><img src="https://math.now.sh?from=dE%28P%2C%20w_i%29%20%3D%20L_i(P%2C%20w_i)%5Ccos%5Ctheta_idw_i%0A"></p><p>Then,</p>
+<p style><img src="https://math.now.sh?from=f_r%28P%2C%20w_o%2C%20w_i%29%20%3D%20%5Cfrac%7BdL_o(P%2C%20w_o)%7D%7BdE(P%2C%20w_i)%7D%20%3D%20%5Cfrac%7BdL_o(P%2C%20w_o)%7D%7BL_i(P%2C%20w_i)%5Ccos%5Ctheta_idw_i%7D%0A"></p><p>So,</p>
+<p style><img src="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)dE(P%20%5Cleftarrow%20w_i)%0A"></p><p style><img src="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)%5Ccos%5Ctheta_idw_i%0A"></p><p>Finally, a rendering equation is obtained.</p>
+<p style><img src="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)%5C(N%20%5Ccdot%20w_i)dw_i%0A"></p><h4 id="Reference">Reference</h4>
+<p>[1]Philp Dutré,Kavita Bala, Philippe Bekaeert.Advanced Global Illumination.2nd Edition.</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Thesis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Article</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenGl</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/07/19/About-Me/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ABOUT</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -309,8 +393,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
