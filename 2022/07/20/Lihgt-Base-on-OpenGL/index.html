@@ -36,8 +36,12 @@
 <meta property="og:image" content="https://math.now.sh?from=f_r%28P%2C%20w_o%2C%20w_i%29%20%3D%20%5Cfrac%7BdL_o(P%2C%20w_o)%7D%7BdE(P%2C%20w_i)%7D%20%3D%20%5Cfrac%7BdL_o(P%2C%20w_o)%7D%7BL_i(P%2C%20w_i)%5Ccos%5Ctheta_idw_i%7D%0A">
 <meta property="og:image" content="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)dE(P%20%5Cleftarrow%20w_i)%0A">
 <meta property="og:image" content="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)%5Ccos%5Ctheta_idw_i%0A">
-<meta property="og:image" content="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)(N%20%5Ccdot%20w_i)dw_i%20%2B%20L_%7Bemission%7D(w_o)%0A">
-<meta property="og:updated_time" content="2022-07-22T01:37:24.476Z">
+<meta property="og:image" content="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)(N%20%5Ccdot%20w_i)dw_i%20%2B%20L_%7Bemission%7D(P%2Cw_o)%0A">
+<meta property="og:image" content="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)(N%20%5Ccdot%20w_i)dw_i%20%2B%20L_%7Bemission%7D(P%2Cw_o)%0A">
+<meta property="og:image" content="https://math.now.sh?from=attenuation%20%3D%20%5Cfrac%7B1.0%7D%7Bk_c%20%2B%20k_l%20%5Ccdot%20dist%20%2B%20k_q%20%5Ccdot%20dist%5E2%7D%0A">
+<meta property="og:image" content="https://math.now.sh?from=attenuation%20%3D%20%5Cfrac%7B2%7D%7Br%5E2%7D%281%20-%20%5Cfrac%7Bd%7D%7B%5Csqrt(d%5E2%20%2B%20r%5E2%29%7D)%20%3D%20%5Cfrac%7B2%7D%7Bd%5E2%20%2B%20r%5E2%20%2B%20d%20%5Csqrt%7Bd%5E2%20%2B%20r%5E2%7D%7D%0A">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/spotlight.png">
+<meta property="og:updated_time" content="2022-07-23T03:18:38.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lihgt Base on OpenGL">
 <meta name="twitter:description" content="Concepts First of all, let’s review some basic concepts. Radiant Flux : energy per unit time, say it’s measured in watts. Unit is . Irradiance : the flux incident on the surface per unit surface area.">
@@ -284,11 +288,26 @@ Therefore,</p>
 <p style><img src="https://math.now.sh?from=E%20%3D%20%5Cint_%7B%5COmega%7DL%28P%5Cleftarrow%20w_i%29%5Ccos%5Ctheta_idw%0A"></p><p style><img src="https://math.now.sh?from=dE%28P%2C%20w_i%29%20%3D%20L_i(P%2C%20w_i)%5Ccos%5Ctheta_idw_i%0A"></p><p>Then,</p>
 <p style><img src="https://math.now.sh?from=f_r%28P%2C%20w_o%2C%20w_i%29%20%3D%20%5Cfrac%7BdL_o(P%2C%20w_o)%7D%7BdE(P%2C%20w_i)%7D%20%3D%20%5Cfrac%7BdL_o(P%2C%20w_o)%7D%7BL_i(P%2C%20w_i)%5Ccos%5Ctheta_idw_i%7D%0A"></p><p>So,</p>
 <p style><img src="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)dE(P%20%5Cleftarrow%20w_i)%0A"></p><p style><img src="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)%5Ccos%5Ctheta_idw_i%0A"></p><p>Finally, a rendering equation is obtained.</p>
-<p style><img src="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)(N%20%5Ccdot%20w_i)dw_i%20%2B%20L_%7Bemission%7D(w_o)%0A"></p><hr>
+<p style><img src="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20%5Cint_%5COmega%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)(N%20%5Ccdot%20w_i)dw_i%20%2B%20L_%7Bemission%7D(P%2Cw_o)%0A"></p><hr>
 <h3 id="Blinn-Phong">Blinn-Phong</h3>
-<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">vec3</span> N = <span class="built_in">normalize</span>(normal); <span class="comment">// normal vector</span></span><br><span class="line"><span class="type">vec3</span> L = <span class="built_in">normalize</span>(lightPos.xyz - worldPos.xyz); <span class="comment">// light direction</span></span><br><span class="line"><span class="type">vec3</span> R = <span class="built_in">reflect</span>(-L, N); <span class="comment">// light reflect direction</span></span><br><span class="line"><span class="type">vec3</span> V = <span class="built_in">normalize</span>(cameraPos.xyz - worldPos.xyz); <span class="comment">// view direction</span></span><br><span class="line"><span class="type">vec3</span> H = <span class="built_in">normalize</span>(L + V); <span class="comment">// halfway vector</span></span><br><span class="line"><span class="type">float</span> diff = <span class="built_in">max</span>(<span class="number">0.0</span>f, <span class="built_in">dot</span>(N, L));</span><br><span class="line"><span class="type">float</span> spec = <span class="number">0.0</span>f;</span><br><span class="line"><span class="type">vec3</span> diffColor = light.lightColor * mat.Kd * diff * tex.Kd;</span><br><span class="line"><span class="type">vec3</span> specColor = <span class="type">vec3</span>(<span class="number">0.0</span>f);</span><br><span class="line"><span class="keyword">if</span> (diff &gt; <span class="number">0.0</span>f) &#123;</span><br><span class="line">    <span class="keyword">if</span>(bBlinn)&#123;</span><br><span class="line">       spec = <span class="built_in">pow</span>(<span class="built_in">max</span>(<span class="number">0.0</span>f, <span class="built_in">dot</span>(N, H)), mat.shininess); </span><br><span class="line">    &#125;</span><br><span class="line">    spec = <span class="built_in">pow</span>(<span class="built_in">max</span>(<span class="number">0.0</span>f, <span class="built_in">dot</span>(V, R)), mat.shininess);</span><br><span class="line">    specColor = light.lightColor * mat.Ks * spec * tex.Ks;</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">vec3</span> N = <span class="built_in">normalize</span>(normal); <span class="comment">// normal vector</span></span><br><span class="line"><span class="type">vec3</span> L = <span class="built_in">normalize</span>(light.lightPos.xyz - worldPos.xyz); <span class="comment">// light direction</span></span><br><span class="line"><span class="type">vec3</span> R = <span class="built_in">reflect</span>(-L, N); <span class="comment">// light reflect direction</span></span><br><span class="line"><span class="type">vec3</span> V = <span class="built_in">normalize</span>(cameraPos.xyz - worldPos.xyz); <span class="comment">// view direction</span></span><br><span class="line"><span class="type">vec3</span> H = <span class="built_in">normalize</span>(L + V); <span class="comment">// halfway vector</span></span><br><span class="line"><span class="type">float</span> diff = <span class="built_in">max</span>(<span class="number">0.0</span>f, <span class="built_in">dot</span>(N, L));</span><br><span class="line"><span class="type">float</span> spec = <span class="number">0.0</span>f;</span><br><span class="line"><span class="type">vec3</span> diffColor = light.lightColor * mat.Kd * diff * tex.Kd;</span><br><span class="line"><span class="type">vec3</span> specColor = <span class="type">vec3</span>(<span class="number">0.0</span>f);</span><br><span class="line"><span class="keyword">if</span> (diff &gt; <span class="number">0.0</span>f) &#123;</span><br><span class="line">    <span class="keyword">if</span>(bBlinn)&#123;</span><br><span class="line">       spec = <span class="built_in">pow</span>(<span class="built_in">max</span>(<span class="number">0.0</span>f, <span class="built_in">dot</span>(N, H)), mat.shininess); </span><br><span class="line">    &#125;</span><br><span class="line">    spec = <span class="built_in">pow</span>(<span class="built_in">max</span>(<span class="number">0.0</span>f, <span class="built_in">dot</span>(V, R)), mat.shininess);</span><br><span class="line">    specColor = light.lightColor * mat.Ks * spec * tex.Ks;</span><br></pre></td></tr></table></figure>
+<h3 id="Theory-Light">Theory Light</h3>
+<p><strong>Point LIGHT</strong><br>
+The point light source naturally has only one direction for a point with incident light, so there is no integral here. This is also means that it does not need to consider the direction of light, but needs position information.</p>
+<p style><img src="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)(N%20%5Ccdot%20w_i)dw_i%20%2B%20L_%7Bemission%7D(P%2Cw_o)%0A"></p><p>In addition, it is importance to consider the attenuation for the point light source.<br>
+First way</p>
+<p style><img src="https://math.now.sh?from=attenuation%20%3D%20%5Cfrac%7B1.0%7D%7Bk_c%20%2B%20k_l%20%5Ccdot%20dist%20%2B%20k_q%20%5Ccdot%20dist%5E2%7D%0A"></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> dist = length(L);</span><br><span class="line"><span class="keyword">float</span> attenuation = <span class="number">1.0f</span> / (Kc + Kl * dist + Kq * dist * dist);</span><br></pre></td></tr></table></figure>
+<p>Second way, Professoer Cem Yuksel proposes an attenuation function that considers the radius of light source to eliminate the singularity of the inverse-square light attenuation function.</p>
+<p style><img src="https://math.now.sh?from=attenuation%20%3D%20%5Cfrac%7B2%7D%7Br%5E2%7D%281%20-%20%5Cfrac%7Bd%7D%7B%5Csqrt(d%5E2%20%2B%20r%5E2%29%7D)%20%3D%20%5Cfrac%7B2%7D%7Bd%5E2%20%2B%20r%5E2%20%2B%20d%20%5Csqrt%7Bd%5E2%20%2B%20r%5E2%7D%7D%0A"></p><p><strong>Directional LIGHT</strong><br>
+Compared with the point light, it does not need to consider the attenuation of light and the position information of light, but it need to consider the direction of light.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vec3 L = normalize(light.direction);</span><br></pre></td></tr></table></figure>
+<p><strong>Spot LIGHT</strong><br>
+For Spot light, it should consider both the direction of the light and the position information where the light is nedded. At the same time, it is necessary to calculate the attenuation factor.<br>
+<img src="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/spotlight.png" alt="img"></p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">vec3</span> spotDir = <span class="built_in">normalize</span>(light.lightDir,xyz);</span><br><span class="line"><span class="type">float</span> currentCosTheta = <span class="built_in">max</span>(<span class="number">0.0</span>f, <span class="built_in">dot</span>(-L, spotDir));</span><br><span class="line"><span class="type">float</span> radianceCutoff = light.cutoff * Pi / <span class="number">180.0</span>f;</span><br><span class="line"><span class="type">float</span> cosTheta = <span class="built_in">cos</span>(radianceCutoff);</span><br><span class="line"><span class="keyword">if</span> (currentCosTheta &gt; cosTheta) </span><br><span class="line">    diff = <span class="built_in">pow</span>(currentCosTheta, <span class="number">32.0</span>f) * light.intensity;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    diff = <span class="number">0.0</span>f;</span><br></pre></td></tr></table></figure>
 <h4 id="Reference">Reference</h4>
-<p>[1]Philp Dutré,Kavita Bala, Philippe Bekaeert.Advanced Global Illumination.2nd Edition.</p>
+<p>[1]Philp Dutré,Kavita Bala, Philippe Bekaeert.Advanced Global Illumination.2nd Edition.<br>
+[2]<a href="https://doi.org/10.1145/3388767.3407364" target="_blank" rel="noopener">Cem Yuksel.Point Light Attenuation Without Singularity.ACM SIGGRAPH 2020 Talks.SIGGRAPH 2020.New York, NY, USA.</a></p>
 
     
 
@@ -505,19 +524,7 @@ Therefore,</p>
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Article</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,11 +532,19 @@ Therefore,</p>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenGl</a>
+                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,7 +560,7 @@ Therefore,</p>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Thesis</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenGl</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,6 +569,10 @@ Therefore,</p>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Soft Render</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Thesis</a>
               </li>
             
             <div class="clearfix"></div>
