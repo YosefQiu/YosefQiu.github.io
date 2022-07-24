@@ -41,7 +41,14 @@
 <meta property="og:image" content="https://math.now.sh?from=attenuation%20%3D%20%5Cfrac%7B1.0%7D%7Bk_c%20%2B%20k_l%20%5Ccdot%20dist%20%2B%20k_q%20%5Ccdot%20dist%5E2%7D%0A">
 <meta property="og:image" content="https://math.now.sh?from=attenuation%20%3D%20%5Cfrac%7B2%7D%7Br%5E2%7D%281%20-%20%5Cfrac%7Bd%7D%7B%5Csqrt(d%5E2%20%2B%20r%5E2%29%7D)%20%3D%20%5Cfrac%7B2%7D%7Bd%5E2%20%2B%20r%5E2%20%2B%20d%20%5Csqrt%7Bd%5E2%20%2B%20r%5E2%7D%7D%0A">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/spotlight.png">
-<meta property="og:updated_time" content="2022-07-23T03:18:38.265Z">
+<meta property="og:image" content="https://math.now.sh?from=F%20%3D%20%5Cint%5Eb_%7Ba%7Df%28x%29dx%0A">
+<meta property="og:image" content="https://math.now.sh?from=F%5EN%20%3D%20%5Cfrac%7B1%7D%7BN%7D%5Csum%5E%7BN%7D_%7Bi%3D1%7D%5Cfrac%7Bf%28X_i%29%7D%7Bpdf(X_i)%7D%0A">
+<meta property="og:image" content="https://math.now.sh?inline=%5Ccos%5Ctheta">
+<meta property="og:image" content="https://math.now.sh?from=D_0%3D%28w_0%3D(x%2Cy%2Cz%29)%3D%5Cfrac%7B1%7D%7B%5Cpi%7Dmax(0%2Cz)%0A">
+<meta property="og:image" content="https://math.now.sh?from=D%28w%29%3DD_0(%5Cfrac%7BM%5E%7B-1%7Dw%7D%7B%7C%7CM%5E%7B-1%7Dw%7C%7C%7D)%5Cfrac%7B%7CM%5E%7B-1%7D%7C%7D%7B%7C%7CM%5E%7B-1%7Dw%7C%7C%5E3%7D%0A">
+<meta property="og:image" content="https://math.now.sh?from=M%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a%20%26%200%20%26%20b%20%5C%5C%200%20%26%201%20%26%200%20%5C%5C%20c%20%26%200%20%26%20d%20%5Cend%7Bmatrix%7D%5Cright%5D%0A">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/arealight.png">
+<meta property="og:updated_time" content="2022-07-24T01:08:35.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lihgt Base on OpenGL">
 <meta name="twitter:description" content="Concepts First of all, let’s review some basic concepts. Radiant Flux : energy per unit time, say it’s measured in watts. Unit is . Irradiance : the flux incident on the surface per unit surface area.">
@@ -297,17 +304,37 @@ The point light source naturally has only one direction for a point with inciden
 <p style><img src="https://math.now.sh?from=L_o%28P%5Crightarrow%20w_o%29%20%3D%20f_r(P%2C%20w_i%20%5Crightarrow%20w_o)L_i(P%20%5Cleftarrow%20w_i)(N%20%5Ccdot%20w_i)dw_i%20%2B%20L_%7Bemission%7D(P%2Cw_o)%0A"></p><p>In addition, it is importance to consider the attenuation for the point light source.<br>
 First way</p>
 <p style><img src="https://math.now.sh?from=attenuation%20%3D%20%5Cfrac%7B1.0%7D%7Bk_c%20%2B%20k_l%20%5Ccdot%20dist%20%2B%20k_q%20%5Ccdot%20dist%5E2%7D%0A"></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> dist = length(L);</span><br><span class="line"><span class="keyword">float</span> attenuation = <span class="number">1.0f</span> / (Kc + Kl * dist + Kq * dist * dist);</span><br></pre></td></tr></table></figure>
-<p>Second way, Professoer Cem Yuksel proposes an attenuation function that considers the radius of light source to eliminate the singularity of the inverse-square light attenuation function.</p>
+<p>Second way, Professor Cem Yuksel proposes an attenuation function that considers the radius of light source to eliminate the singularity of the inverse-square light attenuation function.</p>
 <p style><img src="https://math.now.sh?from=attenuation%20%3D%20%5Cfrac%7B2%7D%7Br%5E2%7D%281%20-%20%5Cfrac%7Bd%7D%7B%5Csqrt(d%5E2%20%2B%20r%5E2%29%7D)%20%3D%20%5Cfrac%7B2%7D%7Bd%5E2%20%2B%20r%5E2%20%2B%20d%20%5Csqrt%7Bd%5E2%20%2B%20r%5E2%7D%7D%0A"></p><p><strong>Directional LIGHT</strong><br>
 Compared with the point light, it does not need to consider the attenuation of light and the position information of light, but it need to consider the direction of light.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vec3 L = normalize(light.direction);</span><br></pre></td></tr></table></figure>
 <p><strong>Spot LIGHT</strong><br>
-For Spot light, it should consider both the direction of the light and the position information where the light is nedded. At the same time, it is necessary to calculate the attenuation factor.<br>
+For Spot light, it should consider both the direction of the light and the position information where the light is needed. At the same time, it is necessary to calculate the attenuation factor.<br>
 <img src="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/spotlight.png" alt="img"></p>
 <figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">vec3</span> spotDir = <span class="built_in">normalize</span>(light.lightDir,xyz);</span><br><span class="line"><span class="type">float</span> currentCosTheta = <span class="built_in">max</span>(<span class="number">0.0</span>f, <span class="built_in">dot</span>(-L, spotDir));</span><br><span class="line"><span class="type">float</span> radianceCutoff = light.cutoff * Pi / <span class="number">180.0</span>f;</span><br><span class="line"><span class="type">float</span> cosTheta = <span class="built_in">cos</span>(radianceCutoff);</span><br><span class="line"><span class="keyword">if</span> (currentCosTheta &gt; cosTheta) </span><br><span class="line">    diff = <span class="built_in">pow</span>(currentCosTheta, <span class="number">32.0</span>f) * light.intensity;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    diff = <span class="number">0.0</span>f;</span><br></pre></td></tr></table></figure>
+<h3 id="Area-Light">Area Light</h3>
+<p>For the area light source, we can treat it as a set of infinitely many point light source, so we only need to integrate the solid angle range of the area light and determine the radiance of the incident light of the area light source in different solid angle.<br>
+In addition, for the rendering equation we discussed earlier, we need to calculate an analytic expression mathematically, but there is no analytic expression for the above integral. Therefore, a well-known method is Monte Carlo.</p>
+<p style><img src="https://math.now.sh?from=F%20%3D%20%5Cint%5Eb_%7Ba%7Df%28x%29dx%0A"></p><p style><img src="https://math.now.sh?from=F%5EN%20%3D%20%5Cfrac%7B1%7D%7BN%7D%5Csum%5E%7BN%7D_%7Bi%3D1%7D%5Cfrac%7Bf%28X_i%29%7D%7Bpdf(X_i)%7D%0A"></p><p>But it is troublesome to use Monte Carlo. we can directly trick. At the same time, we can use light transport theory to optimize.<br>
+Another method is polygonal-light shading with LTC proposed by Eric Heitz et al.<br>
+After determine the incident direction and roughness, BRDF become a spherical distribution function. As we said before, the key point problem needs to be solved is analytic expression.  Heitz’s paper shows that we can convert the BRDF spherical distribution function into the spherical distribution function of <img src="https://math.now.sh?inline=%5Ccos%5Ctheta" style="display:inline-block;margin: 0;">.<br>
+In short, we are changing the BRDF linear transformation to a cosine distribution in rendering.</p>
+<p style><img src="https://math.now.sh?from=D_0%3D%28w_0%3D(x%2Cy%2Cz%29)%3D%5Cfrac%7B1%7D%7B%5Cpi%7Dmax(0%2Cz)%0A"></p><p>Then, the LTC can be obtained,</p>
+<p style><img src="https://math.now.sh?from=D%28w%29%3DD_0(%5Cfrac%7BM%5E%7B-1%7Dw%7D%7B%7C%7CM%5E%7B-1%7Dw%7C%7C%7D)%5Cfrac%7B%7CM%5E%7B-1%7D%7C%7D%7B%7C%7CM%5E%7B-1%7Dw%7C%7C%5E3%7D%0A"></p><p>Base the GGX BRDF, we can use four parameters to create a M. It is also mean find a LTC.</p>
+<p style><img src="https://math.now.sh?from=M%20%3D%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20a%20%26%200%20%26%20b%20%5C%5C%200%20%26%201%20%26%200%20%5C%5C%20c%20%26%200%20%26%20d%20%5Cend%7Bmatrix%7D%5Cright%5D%0A"></p><p>So, we can store it in a 2D four-channel LUT.  According Ubpa’s summary, we can summarize a process.</p>
+<ul>
+<li>Sampling LUT and get M.</li>
+<li>Change the vertex of polygon to the [T1, T2, M] coordinate system.</li>
+<li>Crop polygons.</li>
+<li>Integral.</li>
+<li>Sampling Norm and Fresnel term to adjustment step 4.<br>
+<img src="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/arealight.png" alt="img">.</li>
+</ul>
 <h4 id="Reference">Reference</h4>
 <p>[1]Philp Dutré,Kavita Bala, Philippe Bekaeert.Advanced Global Illumination.2nd Edition.<br>
-[2]<a href="https://doi.org/10.1145/3388767.3407364" target="_blank" rel="noopener">Cem Yuksel.Point Light Attenuation Without Singularity.ACM SIGGRAPH 2020 Talks.SIGGRAPH 2020.New York, NY, USA.</a></p>
+[2]<a href="https://doi.org/10.1145/3388767.3407364" target="_blank" rel="noopener">Cem Yuksel.Point Light Attenuation Without Singularity.ACM SIGGRAPH 2020 Talks.SIGGRAPH 2020.New York, NY, USA.</a><br>
+[3]Ubp.a.Real-Time Trick-PBR Area Lights.<br>
+[4]<a href="https://drive.google.com/file/d/0BzvWIdpUpRx_d09ndGVjNVJzZjA/view?resourcekey=0-21tmiqk55JIZU8UoeJatXQ" target="_blank" rel="noopener">Heitz E , Dupuy J , Hill S , et al. Real-time polygonal-light shading with linearly transformed cosines[J]. ACM Transactions on Graphics, 2016, 35(4):1-8</a></p>
 
     
 
@@ -536,11 +563,11 @@ For Spot light, it should consider both the direction of the light and the posit
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
+                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -560,15 +587,15 @@ For Spot light, it should consider both the direction of the light and the posit
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Computer Graphic</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Soft Render</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
               </li>
              
               <li class="article-tag-list-item">
