@@ -176,13 +176,13 @@ h1 {
 } 
 
 .page_select{
-  width: 200px;
-  height: 25px;
-  line-height: 25px;
-  position: relative;
-  left:89%;
-  top:30%;
-  display: inline-block;
+  width: 150px;
+  height: 35px;
+  line-height: normal;
+  position: absolute;
+  top: 66%;
+  left: 65%;
+  /* display: inline-block; */
 }
 /*checkbox选中显示option*/
 .page_select #page_tt:checked + label + .page_option{
@@ -190,11 +190,14 @@ h1 {
 }
 .page_select .page_tt{
    text-align: center;
-   background: #fff;
-   padding-right: 30px;
+   background: #fcfcfc;
+   box-shadow: 0px 15px 40px #7E6D5766;
+   padding-top: 23px;
    border-radius: 12px;
    color: #444444;
    display: block;     
+   height: 40px;
+   font-size: 16px;
 }
 .page_select .page_option{
   background: rgb(255, 255, 255);
@@ -227,12 +230,14 @@ h1 {
   color:#444444;
 }
 
+
+/* slider======================================= */
 .slider {
   position: absolute;
-  top: 50%;
-  left: 93%;
+  top: 70%;
+  left: 30%;
   transform: translate(-50%,-50%);
-  width: 150px;
+  width: 600px;
   height: 20px;
   padding: 20px;
   padding-left: 20px;
@@ -253,7 +258,7 @@ h1 {
 
 .slider input[type="range"] {
   -webkit-appearance: none !important;
-  width: 120px;
+  width: 420px;
   height: 2px;
   background: black;
   border: none;

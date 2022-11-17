@@ -290,6 +290,7 @@ class ChordChart {
         this.bFirstZoom = false;
         console.log("zoom", this.bFirstZoom);
         that.initLineChartSvg();
+        window.scrollTo(0, document.body.scrollHeight / 2);
         globalApplicationState.ImportLine = new LineChart(that.originalData, "Import",call_names);
         globalApplicationState.ImportLine = new LineChart(that.originalData, "Export",call_names);
         globalApplicationState.ImportLine.updateLineChart(call_names);
