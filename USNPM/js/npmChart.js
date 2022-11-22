@@ -29,7 +29,7 @@ class NPM
     const geoGenerator = d3.geoPath()
       .projection(projection);
     
-    let usJson = await d3.json("./data/usMap.json");
+    let usJson = await d3.json("./data/usmap.json");
     let parkJson = await d3.json("./data/park.json");
     let forestJson = await d3.json("./data/forest.json");
 
