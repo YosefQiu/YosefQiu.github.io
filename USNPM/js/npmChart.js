@@ -2,9 +2,9 @@ class NPM
 {
   constructor() {
     // get the data
-    let map_url = "../data/usMap.json";
-    let park_url = "../data/park.json";
-    let forests_url = "../data/forest.json"
+    let map_url = "./data/usa.json";
+    let park_url = "./data/park.json";
+    let forests_url = "./data/forest.json"
 
   }
 
@@ -29,7 +29,7 @@ class NPM
     const geoGenerator = d3.geoPath()
       .projection(projection);
     
-    let usJson = await d3.json("./data/usmap.json");
+    let usJson = await d3.json("./data/usa.json");
     let parkJson = await d3.json("./data/park.json");
     let forestJson = await d3.json("./data/forest.json");
 
