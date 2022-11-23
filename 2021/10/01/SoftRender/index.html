@@ -10,17 +10,17 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away. I’ve been exposed to">
+  <meta name="description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SoftRender">
 <meta property="og:url" content="http://example.com/2021/10/01/SoftRender/index.html">
 <meta property="og:site_name" content="Yongfeng Qiu">
-<meta property="og:description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away. I’ve been exposed to">
+<meta property="og:description" content="In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/2D.gif">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/3D.gif">
 <meta property="article:published_time" content="2021-10-01T21:27:35.000Z">
-<meta property="article:modified_time" content="2022-07-19T16:25:11.641Z">
+<meta property="article:modified_time" content="2022-11-23T01:08:04.667Z">
 <meta property="article:author" content="Yongfeng Qiu">
 <meta property="article:tag" content="Article">
 <meta property="article:tag" content="C++">
@@ -258,9 +258,9 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p>In 2018, I first came into contact with computer graphics. Until now, I still clearly remember the joy of drawing the first triangle with C++ for the first time. Times flies away.</p>
-<p>I’ve been exposed to more graphics APIs like OpenGL, WebGL, DirectX, Vulkan. As more APIs are called, the adoption of a more profound understanding of computer graphics. Just taking advantage of this year’s holiday, I came up with a new idea. I intend to realize soft rendering from scratch, do not rely on the current graphics API, use pure C++, calculate on the CPU, and find the joy of drawing triangles again. Starting from the simplest mathematical class, I will imitate the rendering pipeline of OpenGL and implement it step by step.</p>
 <span id="more"></span>
-<p>At present, my plan is divided into two parts. The first part is 2D-related, and the second part is 3D-related. I want to focus on 2D first because there are many basic contents in 2D, such as the drawing of various 2D graphics, the filling of colors, the modification of line type and line width, and the geometric constraints of graphics (I intend to implement it with a population intelligence algorithm called harmony search algorithm to constrain the relationship of graphics)</p>
+<p>I’ve been exposed to more graphics APIs like OpenGL, WebGL, DirectX, Vulkan. As more APIs are called, the adoption of a more profound understanding of computer graphics. Just taking advantage of this year’s holiday, I came up with a new idea. I intend to realize soft rendering from scratch, do not rely on the current graphics API, use pure C++, calculate on the CPU, and find the joy of drawing triangles again. Starting from the simplest mathematical class, I will imitate the rendering pipeline of OpenGL and implement it step by step.<br>
+At present, my plan is divided into two parts. The first part is 2D-related, and the second part is 3D-related. I want to focus on 2D first because there are many basic contents in 2D, such as the drawing of various 2D graphics, the filling of colors, the modification of line type and line width, and the geometric constraints of graphics (I intend to implement it with a population intelligence algorithm called harmony search algorithm to constrain the relationship of graphics)</p>
 <p>Then there is the 3D part, which will introduce the MVP matrix to make the graphics move and add lighting, materials, shadows, etc. Finally, I also asked myself to implement a model class. Using this class, we can load various models made by others, For example, Utah teapot (the first model I try to import is Utah teapot, because the University of Utah is my graduate school, hahaha :) )</p>
 <p>OK, let’s look at the final result—first, the 2D.<br>
 <img src="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/2D.gif" alt="img"><br>
@@ -495,11 +495,11 @@ Then, the 3D.<br>
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
+                <a href="javascript:void(0)" class="js-tag color3">Article</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Article</a>
+                <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,11 +507,15 @@ Then, the 3D.<br>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenGl</a>
+                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
+                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,11 +535,7 @@ Then, the 3D.<br>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
+                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,7 +543,7 @@ Then, the 3D.<br>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenGl</a>
               </li>
             
             <div class="clearfix"></div>

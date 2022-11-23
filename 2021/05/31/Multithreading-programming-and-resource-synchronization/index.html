@@ -13,12 +13,12 @@
   <meta name="description" content="Basic concepts of threads A process represents a program actually running on a computer. Each process has its own independent process address space and context stack. However, for the operation perfor">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Multithreading programming and resource synchronization">
-<meta property="og:url" content="http://example.com/2021/10/31/Multithreading-programming-and-resource-synchronization/index.html">
+<meta property="og:url" content="http://example.com/2021/05/31/Multithreading-programming-and-resource-synchronization/index.html">
 <meta property="og:site_name" content="Yongfeng Qiu">
 <meta property="og:description" content="Basic concepts of threads A process represents a program actually running on a computer. Each process has its own independent process address space and context stack. However, for the operation perfor">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-10-31T17:56:21.000Z">
-<meta property="article:modified_time" content="2021-12-31T21:50:46.300Z">
+<meta property="article:published_time" content="2021-05-31T17:56:21.000Z">
+<meta property="article:modified_time" content="2022-11-23T01:09:22.325Z">
 <meta property="article:author" content="Yongfeng Qiu">
 <meta property="article:tag" content="Article">
 <meta property="article:tag" content="C++">
@@ -244,8 +244,8 @@
 
   
   
-<a href="/2021/10/31/Multithreading-programming-and-resource-synchronization/" class="archive-article-date">
-        <time datetime="2021-10-31T17:56:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-31</time>
+<a href="/2021/05/31/Multithreading-programming-and-resource-synchronization/" class="archive-article-date">
+        <time datetime="2021-05-31T17:56:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-31</time>
 </a>
 
   
@@ -256,12 +256,12 @@
     
     <h2 id="Basic-concepts-of-threads">Basic concepts of threads</h2>
 <p>A <strong>process</strong> represents a program actually running on a computer. Each process has its own independent process address space and context stack. However, for the operation performed by a program itself, the process actually does nothing (does not execute any process code), only provides a large environment container, and the actual execution body in the process is a <strong>thread</strong>. Therefore, there must be at least one thread in a process. We call this thread the <strong>main thread</strong>.</p>
+<span id="more"></span>
 <ul>
 <li><strong>[program]:</strong> The ordered combination of a set of instructions， which is a static instruction and exists forever.</li>
 <li><strong>[Process]:</strong> It is an independent unit for system resource allocation and scheduling.</li>
 <li><strong>[Thread]:</strong>  It is an entity of a process and a basic unit of CPU scheduling and allocation.</li>
 </ul>
-<span id="more"></span>
 <h4 id="Process-V-S-Thread">Process V.S. Thread</h4>
 <ul>
 <li>A thread must belong to a process, and a process can have multiple threads and at least one thread.</li>
@@ -374,18 +374,18 @@ Using simple atomic variable access is more efficient than accessing these varia
 
 <nav id="article-nav">
   
-    <a href="/2021/12/05/Image-Mosaicing/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/06/20/3D-model-retrieval-based-on-hand-drawn-sketch/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Image Mosaicing
+          3D model retrieval based on hand drawn sketch
         
       </div>
     </a>
   
   
-    <a href="/2021/10/18/Yellowstone-National-Park/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Yellowstone National Park</div>
+    <a href="/2020/11/20/Cloud-System-base-on-TCP-IP-Protocol/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cloud System base on TCP/IP Protocol</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -556,11 +556,11 @@ Using simple atomic variable access is more efficient than accessing these varia
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
+                <a href="javascript:void(0)" class="js-tag color3">Article</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Article</a>
+                <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,11 +568,15 @@ Using simple atomic variable access is more efficient than accessing these varia
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenGl</a>
+                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
+                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,11 +596,7 @@ Using simple atomic variable access is more efficient than accessing these varia
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
+                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -604,7 +604,7 @@ Using simple atomic variable access is more efficient than accessing these varia
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenGl</a>
               </li>
             
             <div class="clearfix"></div>

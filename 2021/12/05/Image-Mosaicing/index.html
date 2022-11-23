@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://math.now.sh/?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%0A-x_1%20%26%20-y_1%20%26%20-1%20%26%200%20%26%200%20%26%200%20%26%20x_1x%5E%7B">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/YosefQiuImg/Img@master/uPic/image-mosiciang.jpg">
 <meta property="article:published_time" content="2021-12-05T22:37:08.000Z">
-<meta property="article:modified_time" content="2022-07-19T16:24:28.337Z">
+<meta property="article:modified_time" content="2022-11-23T01:00:25.922Z">
 <meta property="article:author" content="Yongfeng Qiu">
 <meta property="article:tag" content="Article">
 <meta property="article:tag" content="Image Processing">
@@ -271,8 +271,8 @@
     
     <p>This article refers to the notes of the Prof. Ross Whitaker, who is my teacher of CS 6600 Image Processing.</p>
 <p>This year, I chose Professor Ross’s course on image processing. Recently, I suddenly became interested in the geometric transformation of images in Prof. Ross’s lesson.  After reading several related papers, I found that the distortion of images is very interesting, so I wrote this blog.</p>
-<p>A strategy of warping one image to other image is using sets of landmarks of fiducial pairs, which we call correspondences. Suppose we have N correspondences as points <img src="https://math.now.sh?inline=%5Cleft%5C%7B%28x_1%2C%20y_1%29%2C%20(x_2%2C%20y_2)%2C%20...%20%2C%20(x_N%2C%20y_N)%5Cright%5C%7D" style="display:inline-block;margin: 0;"/> in image g and image f respectively. Our goal is to find a transformation between two image such that <img src="https://math.now.sh?inline=x%5E%7B'%7D_%7B1%7D%20%3D%20T%28X_1%29" style="display:inline-block;margin: 0;"/>. To find such a warp we normally parameterize the transformation.</p>
 <span id="more"></span>
+<p>A strategy of warping one image to other image is using sets of landmarks of fiducial pairs, which we call correspondences. Suppose we have N correspondences as points <img src="https://math.now.sh?inline=%5Cleft%5C%7B%28x_1%2C%20y_1%29%2C%20(x_2%2C%20y_2)%2C%20...%20%2C%20(x_N%2C%20y_N)%5Cright%5C%7D" style="display:inline-block;margin: 0;"/> in image g and image f respectively. Our goal is to find a transformation between two image such that <img src="https://math.now.sh?inline=x%5E%7B'%7D_%7B1%7D%20%3D%20T%28X_1%29" style="display:inline-block;margin: 0;"/>. To find such a warp we normally parameterize the transformation.</p>
 <p>Then let’s talk about image mosiciang. we both know that two images that are produced from either a pure rotation of an observer or arbitrary views of a planar object are related to one another by a 2D perspective transformation. Hence, It is necessary to consider the perspective mapping. We denote two correspondences points in homogeneous coordinates as <img src="https://math.now.sh?inline=%28x%2C%20y%2C%201%29" style="display:inline-block;margin: 0;"/> and  <img src="https://math.now.sh?inline=%28x%5E%7B'%7D%2C%20y%5E%7B'%7D%2C%201%29" style="display:inline-block;margin: 0;"/>. In perspective mappings, two points are equivalent if they are identical to within a scale factor. That is, <img src="https://math.now.sh?inline=x%2C%20y%2C%20z" style="display:inline-block;margin: 0;"/> is equivalent to  <img src="https://math.now.sh?inline=x%5E%7B'%7D%2C%20y%5E%7B'%7D%2C%20z%5E%7B'%7D" style="display:inline-block;margin: 0;"/> if there exists some $\lambda $ such that <img src="https://math.now.sh?inline=x%20%3D%20%5Clambda%20x%5E%7B'%7D" style="display:inline-block;margin: 0;"/>.</p>
 <p>The <strong>perspective transformation</strong> relating two points is a 3 x 3 matrix multiplication followed by the normalization described above. That is</p>
 <p style=""><img src="https://math.now.sh?from=%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%5E%7B'%7D%20%5C%5C%20y%5E%7B'%7D%20%5C%5C%20z%5E%7B'%7D%20%5Cend%7Bmatrix%7D%5Cright%5D%20%3D%20P%20%5Cleft%5B%5Cbegin%7Bmatrix%7D%20x%20%5C%5C%20y%20%5C%5C%20z%20%5Cend%7Bmatrix%7D%5Cright%5D%0A" /></p><p>Thus, when we are trying to find perspective transformation, must find the 3 x 3 matrix that maps sets of control points tow within a scale factor. we denote the elements of this linear mapping as <img src="https://math.now.sh?inline=P%20%3D%20p_%7Bij%7D" style="display:inline-block;margin: 0;"/>:</p>
@@ -333,8 +333,8 @@ Last, let’s take a look at the resulting graph of the run.</p>
     </a>
   
   
-    <a href="/2021/10/31/Multithreading-programming-and-resource-synchronization/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Multithreading programming and resource synchronization</div>
+    <a href="/2021/10/18/Yellowstone-National-Park/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Yellowstone National Park</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -505,11 +505,11 @@ Last, let’s take a look at the resulting graph of the run.</p>
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
+                <a href="javascript:void(0)" class="js-tag color3">Article</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Article</a>
+                <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,11 +517,15 @@ Last, let’s take a look at the resulting graph of the run.</p>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenGl</a>
+                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
+                <a href="javascript:void(0)" class="js-tag color1">Essay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,11 +545,7 @@ Last, let’s take a look at the resulting graph of the run.</p>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Image Processing</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3D model retrieval</a>
+                <a href="javascript:void(0)" class="js-tag color2">Ray Tracing</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,7 +553,7 @@ Last, let’s take a look at the resulting graph of the run.</p>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">TCP/IP</a>
+                <a href="javascript:void(0)" class="js-tag color2">OpenGl</a>
               </li>
             
             <div class="clearfix"></div>
