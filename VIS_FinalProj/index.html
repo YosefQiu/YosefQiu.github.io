@@ -1,87 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <title>CSS Grid Complex</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr;
+            grid-auto-rows: 150px 100px, auto, 80px;
+            gap: 10px;
+            background-image: url('./img/background.gif');
+        }
+        nav {
+            /* background-color: orange; */
+            background-image: url('./img/img.jpeg');
+            background-repeat: round;
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+        .view0 {
+            /* background-color: rgb(139, 0, 21); */
+            height:100px;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        .view1 {
+            background-color: rgb(255, 255, 255);
+            height:800px;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 3;
+            grid-row-end: 4;
+            /* opacity: 0.7; */
+        }
+        .view2 {
+            /* background-color: rgb(255, 255, 255); */
+            height:800px;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 4;
+            grid-row-end: 5;
+            /* opacity: 0.7; */
+        }
+        .view2 #y-axis path {
+            stroke: white;
+        } 
+        .view2 #x-axis path {
+            stroke: white;
+        } 
+        .view2 #y-axis line {
+            stroke: white;
+        } 
+        .view2 #x-axis line {
+            stroke: white;
+        } 
+        .view2 #y-axis text {
+            stroke: white;
+        } 
+        .view2 #x-axis text {
+            stroke: white;
+        } 
+        .view3 {
+            /* background-color: rgb(255, 255, 255); */
+            height:800px;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: 6;
+        }
+        .aside_before {
+            background-color: steelblue;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 7;
+        }
+        .aside_after {
+            background-color: steelblue;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 7;
+        }
+        footer {
+            background-color: #b0c4de;
+            grid-column: 1 / 3; 
+            text-align: center;          
+        }
+        
+        .uibar {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr;
+            grid-auto-rows: auto auto auto;
+        }
+
+        .toolbar{
+            display: grid;
+            grid-template-columns: repeat(6, auto);
+            gap: 10px;
+        }
+        .button{
+            background-color: transparent;
+            text-align: center;
+            font-family: 'Comic Sans MS';
+            font-weight: 100;
+        }
+        .button:hover{
+            /* background-color: lightgray; */
+            font-size: larger;
+            font-weight: 600; 
+            color: #DC143C;
+        }
+        .node circle {
+            stroke: #3a403d;
+            stroke-width: 5px;
+        }
+        
+    </style>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400"/>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    
-    <div id="div_title">
-        <h2 class="main_title">Worldwide Importing&Exporting Trading Data Visualization</h2>
-    </div>
-    <div id="div_team">
-        <h2 class="team_member">Zhongyi Jiang && Yongfeng Qiu</h2>
-    </div>
+    <div class="wrapper">
+        <nav>     
+            <h2 class="main_title">Worldwide Importing&Exporting Trading Data Visualization</h2>  
+        <div class="toolbar">
+            <span onclick="location.href='./index.html'" class="button">Home Page</span>
+            <span class="button">Project Proposal</span>
+            <span onclick="location.href='./About.html'" class="button">About</span>
+            <span class="button">Video</span>
+            <span class="button">Process Book</span>
+            <span onclick="location.href='https://github.com/YosefQiu/VIS_FinalProj'" class="button">Github</span>
+        </div>
+        </nav>
+        <div class="view0">
 
+            <div class="uibar">
 
-    <div class="view">
-        <div id="header">
+                <div class="slider">
+                    <p> Choose the years</p>
+                    <input type="range" min="1992" max="2020" value="1" oninput="rangeValue.innerText = this.value">
+                    <p id="rangeValue">2020</p>
+                </div>
+                <div> 
+                    <button type="button" class="showLine" id="showLine_btn">Compare</button>
+                </div>
+
+                <div class="page_select">
+                    <!-- 模拟select中的值 -->
+                       <input type="checkbox" id="page_tt" value="Select Country"/>
+                       <label for="page_tt" class="page_tt" id="page_tt_label">Select Country</label>
+                    <!-- 模拟option选项 -->
+                       <div class="page_option" id="option">
+                            <input type="radio" id="radio1" name="radio" value="-">
+                            <label class="sizenum" for="radio1">-</label>
+                            <input type="radio" id="radio2" name="radio" value="China">
+                            <label class="sizenum" for="radio2">China</label>
+                            <input type="radio" id="radio3" name="radio" value="United States">
+                            <label class="sizenum" for="radio3">United States</label>
+                            <input type="radio" id="radio4" name="radio" value="Japan">
+                            <label class="sizenum" for="radio4">Japan</label>
+                            <input type="radio" id="radio5" name="radio" value="Korea, Rep">
+                            <label class="sizenum" for="radio5">Korea, Rep</label>
+                            <input type="radio" id="radio6" name="radio" value="Australia">
+                            <label class="sizenum" for="radio6">Australia</label>
+                            <input type="radio" id="radio7" name="radio" value="Malaysia">
+                            <label class="sizenum" for="radio7">Malaysia</label>
+                            <input type="radio" id="radio8" name="radio" value="Germany">
+                            <label class="sizenum" for="radio8">Germany</label>
+                            <input type="radio" id="radio9" name="radio" value="Vietnam">
+                            <label class="sizenum" for="radio9">Vietnam</label>
+                            <input type="radio" id="radio10" name="radio" value="Thailand">
+                            <label class="sizenum" for="radio10">Thailand</label>
+                            <input type="radio" id="radio11" name="radio" value="Singapore">
+                            <label class="sizenum" for="radio11">Singapore</label>
+        
+                       </div>
+                </div>
+
+            </div>
             
         </div>
 
-       
-        <div class="slider">
-            <p> Choose the years</p>
-            <input type="range" min="1992" max="2020" value="1" oninput="rangeValue.innerText = this.value">
-            <p id="rangeValue">1992</p>
-          </div>
-
-        <div class="page_select">
-            <!-- 模拟select中的值 -->
-               <input type="checkbox" id="page_tt" value="Select Country"/>
-               <label for="page_tt" class="page_tt" id="page_tt_label">Select Country</label>
-            <!-- 模拟option选项 -->
-               <div class="page_option" id="option">
-                    <input type="radio" id="radio1" name="radio" value="-">
-                    <label class="sizenum" for="radio1">-</label>
-                    <input type="radio" id="radio2" name="radio" value="China">
-                    <label class="sizenum" for="radio2">China</label>
-                    <input type="radio" id="radio3" name="radio" value="United States">
-                    <label class="sizenum" for="radio3">United States</label>
-                    <input type="radio" id="radio4" name="radio" value="Japan">
-                    <label class="sizenum" for="radio4">Japan</label>
-                    <input type="radio" id="radio5" name="radio" value="Korea, Rep">
-                    <label class="sizenum" for="radio5">Korea, Rep</label>
-                    <input type="radio" id="radio6" name="radio" value="Australia">
-                    <label class="sizenum" for="radio6">Australia</label>
-                    <input type="radio" id="radio7" name="radio" value="Malaysia">
-                    <label class="sizenum" for="radio7">Malaysia</label>
-                    <input type="radio" id="radio8" name="radio" value="Germany">
-                    <label class="sizenum" for="radio8">Germany</label>
-                    <input type="radio" id="radio9" name="radio" value="Vietnam">
-                    <label class="sizenum" for="radio9">Vietnam</label>
-                    <input type="radio" id="radio10" name="radio" value="Thailand">
-                    <label class="sizenum" for="radio10">Thailand</label>
-                    <input type="radio" id="radio11" name="radio" value="Singapore">
-                    <label class="sizenum" for="radio11">Singapore</label>
-
-               </div>
-        </div>
-
-        <!-- <div id = "btn">
-            <button class="button">Button one</button>
-            <button class="back">Button two</button>
-        </div> -->
-
-        <div class="charts">
-            <svg id="chordCharts" width = 1500 height =800>
+        <div class="view1">
+            <svg id="chordCharts">
                 <g id="Import"></g>
                 <g id="Export"></g>
+                <g id="control_line"></g>
+                <g id="dotCharts">
+                    <g id="Import"><g id="y-axis"></g></g>
+                    <g id="Export"><g id="y-axis"></g></g>
+                </g>
             </svg>
         </div>
+
+        <div id="pre_view2">
+        </div>
+
+        <div class="view3"><svg id="bubbleCharts"></svg></div>
+
+        <aside id="id_aside"class="aside_before">aside</aside>
         
-            
+        <footer>
+            <p>
+                This <strong>Worldwide Importing&Exporting Trading Data Visualization</strong> for <a href="https://www.dataviscourse.net/2022/index.html">CS6630-Fall 2022</a>
+            </p>
+            <p>
+                Designed and built by Yongfeng Qiu, Zhongyi Jiang
+            </p>
+        </footer>
     </div>
+
     <script src="js/ChordChart.js"></script>
     <script src="js/LineChart.js"></script>
+    <script src="js/DotChart.js"></script>
+    <script src="js/ForceBubbleChart.js"></script>
+    <script src="js/Tool.js"></script>
     <script src="js/script.js"></script>
-
-
 </body>
-
 </html>

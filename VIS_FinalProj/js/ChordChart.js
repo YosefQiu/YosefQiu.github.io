@@ -2,20 +2,34 @@ var call_names;
 var that;
 class ChordChart {
     /**
-     * Creates a bubble chart Object
+     * Creates a chord chart Object
      */
 
     // https://observablehq.com/@d3/chord-diagram
     // chord chart takes array of 10*10 as input
     constructor(data,Tradetype,year) {
+
+
+
         this.originalData = data
         this.chordChart = d3.select("#chordCharts");
+
+        // let view = d3.select('#view1').attr('width', 1500).attr('height',  800);
+        
+        this.chordChart.attr('width', '100%');
+        this.chordChart.attr('height', '100%');
         let svg_w = this.chordChart.attr('width');
         let svg_h = this.chordChart.attr('height');
+
+        svg_w = document.getElementById("chordCharts").clientWidth;
+        svg_h = document.getElementById("chordCharts").clientHeight;
+
+
         this.svg_w = svg_w;
         this.svg_h = svg_h;
-        this.vizWidth = svg_w;
-        this.vizHeight = svg_h;
+        this.vizWidth = svg_w / 2;
+        this.vizHeight = svg_h / 2;
+
 
         this.bLineChartInit = false;
         this.bFirstZoom = true;
@@ -25,7 +39,11 @@ class ChordChart {
         this.vizHeight = 500;
         this.TradeType = Tradetype;
         this.year = year;
+
+        // TODO bug 
+        this.sliderWnd();
         this.updateChart(this.year)
+        
         
 
     }
@@ -72,7 +90,11 @@ class ChordChart {
                     if (this.originalData[i].tradeType == this.TradeType) {
                         for (let j = 0; j < countries.length; j++) {
                             if (this.originalData[i].traders == countries[j]) {
-                                temp.push(this.originalData[i].TradeData[this.year-1992]);
+                                let dataValue = this.originalData[i].TradeData[this.year-1992];
+                                if (dataValue)
+                                    temp.push(dataValue);
+                                else
+                                    temp.push(0);
                             }
                         }
                     }
@@ -81,11 +103,12 @@ class ChordChart {
             processData[findCountries[countries[k]]] = temp;
             temp = [];
         }
-
+        
         for (let i = 0; i < countries.length; i++) {
             processData[findCountries[countries[i]]].splice(i, 0, 0);
         }
         processData['VIE'][0] = 0;
+
         let tradeSum = 0;
         for (let i = 0; i < countries.length; i++) {
             tradeSum += sum(processData[findCountries[countries[i]]]);
@@ -138,13 +161,18 @@ class ChordChart {
     updateChart(year) {
         // here year is a four digit year number (e.g. 2022)
         this.updateData(year)
+        
         d3.select("#chordCharts").attr("viewBox", [-this.vizWidth / 2, -this.vizWidth / 2, this.vizWidth, this.vizWidth])
         let svg;
         if (this.TradeType == "Import") {
-            svg = d3.select("#Import").attr("transform", `scale(1.15)translate(-200,0)`);
+            // clear svg before drawing new ones:
+            d3.select("#Import").selectAll("*").remove();
+            svg = d3.select("#Import").attr("transform", `scale(0.90)translate(-195,0)`);
         }
         else {
-            svg = d3.select("#Export").attr("transform", `scale(1.15)translate(200,0)`);
+            // clear svg before drawing new ones:
+            d3.select("#Export").selectAll("*").remove();
+            svg = d3.select("#Export").attr("transform", `scale(0.90)translate(205,0)`);
         }
 
 
@@ -152,10 +180,9 @@ class ChordChart {
             .attr("id", "title");
 
        
-        svg.select("#title")
-            .append("text")
-            .attr("font-size", 20)
+        svg.select("#title").append("text")
             .text(`${this.TradeType} Data For year ${this.year}`)
+            .attr("font-size", 20)
             .attr("transform", ` translate(${- this.vizWidth *0.3125}, ${- this.vizWidth * 0.4375})`);
 
         const chords = this.chord(this.data);
@@ -167,30 +194,24 @@ class ChordChart {
             .data(chords.groups)
             .join("g");
 
-        
-
-        
-       
-
         let names = this.names
           
         svg.append("g")
             .attr("id", "belts")
             .attr("class","default")
-            .attr("fill-opacity", 0.25)
+            .attr("fill-opacity", 0.5) // change 0.5
             .selectAll("path")
             .data(chords)
             .join("path")
-            .style("mix-blend-mode", "multiply")
             .attr("fill", d => this.color(names[d.source.index]))
             .attr("d", this.ribbon)
             .on("mouseover", (d, i) => {
-                d3.select("#belts").attr("fill-opacity", 0.25);
+                d3.select("#belts").attr("fill-opacity", 0.5); // change 0.5
                 d.target.setAttribute("fill-opacity", 1)
-                console.log()
+                //console.log()
             })
             .on("mouseout", (d, i) => {
-                d.target.setAttribute("fill-opacity", 0.25)
+                d.target.setAttribute("fill-opacity", 0.5) // change 0.5
             })
             .append("title")
             .text(d => `${this.formatValue(d.source.value)} 
@@ -205,7 +226,7 @@ class ChordChart {
             .attr("fill", d => this.color(this.names[d.index]))
             .attr("d", this.arc)
             .on("mouseover", (d, i) => {
-                d3.select("#arcs").attr("fill-opacity", 0.25);
+                d3.select("#arcs").attr("fill-opacity", 0.5);
                 d.target.setAttribute("fill-opacity", 1)
 
                 // if a country arc is selected, the chord chart should show all the belts related to this country
@@ -214,7 +235,7 @@ class ChordChart {
                 //console.log(this.names[i.index]);
             })
             .on("click", (d, i) => {
-                console.log('new zoomm', this.bFirstZoom);
+                //console.log('new zoomm', this.bFirstZoom);
                 if (this.bFirstZoom == true) {
                     d3.select("#Import")
                     .transition()
@@ -222,14 +243,14 @@ class ChordChart {
                     .attr("transform", `scale(5.0)translate(-200,0)`)
                     .transition()
                     .duration(3000)
-                    .attr("transform", `scale(1.0)translate(-200,0)`);
+                    .attr("transform", `scale(0.90)translate(-200,0)`);
                     d3.select("#Export")
                     .transition()
                     .duration(3000)
-                    .attr("transform", `scale(5.0)translate(250,0)`)
+                    .attr("transform", `scale(5.0)translate(220,0)`)
                     .transition()
                     .duration(3000)
-                    .attr("transform", `scale(1.0)translate(250,0)`).on("end",this.myCallback);
+                    .attr("transform", `scale(0.90)translate(220,0)`).on("end",this.myCallback);
                     // this.bFirstZoom = false;
                 }
                 call_names = names[i.index];
@@ -240,6 +261,9 @@ class ChordChart {
                     globalApplicationState.ImportLine = new LineChart(this.originalData, "Import",names[i.index]);
                     globalApplicationState.ImportLine = new LineChart(this.originalData, "Export",names[i.index]);
                     globalApplicationState.ImportLine.updateLineChart(names[i.index]);
+                    
+                    // let tools = new Tools('./foo.txt');
+                    let obj_txt = load('./foo.txt', names[i.index]);
                 }
                 this.bFirstZoom = false;
             })
@@ -260,15 +284,30 @@ class ChordChart {
             .attr("xlink:href", "#countryName") 
             .style("text-anchor", "middle")
             .attr("startOffset", d => (d.startAngle + d.endAngle)/2 * outerRadius)
-            .text(d => `${this.names[d.index]}`)
+            .text(d => {
+                if(names[d.index]=="Vietnam" && year <2000){
+                    return "";
+                }
+                else{
+                    return `${this.names[d.index]}`;
+                }
+                
+            })
             .on("mouseover", (d, i) => {
                 //console.log(this.names[i.index]);
             })
 }
 
     initLineChartSvg() {
-        let svg = d3.select('.charts').append('svg').attr('id', 'lineCharts')
-            .attr("width", 1500).attr("height", 600);
+
+        let view2 = document.getElementById('pre_view2');
+        view2.classList.add('view2');
+        
+        let svg = d3.select('#pre_view2').append('svg');
+        svg.attr('id', 'lineCharts').attr("width", '100%').attr("height", '100%');
+
+        let svg_txt = svg.append('g').attr('id', "g_txt");
+
         let svg_import = svg.append('g').attr('id', "Import");
         svg_import.append('g').attr('id', "lines");
         svg_import.append('g').attr('id', "overlay");
@@ -280,21 +319,129 @@ class ChordChart {
         svg_export.append('g').attr('id', "x-axis");
         svg_export.append('g').attr('id', "y-axis");
 
+        document.getElementById('id_aside').classList.remove('aside_before');
+        document.getElementById('id_aside').classList.add('aside_after');
         this.bLineChartInit = true;
         console.log('init finish========');
+        bLineChartCreate = true;
     }
 
     myCallback() {
-        console.log('call back');
+        //console.log('call back');
         console.log(call_names);
         this.bFirstZoom = false;
-        console.log("zoom", this.bFirstZoom);
+        //console.log("zoom", this.bFirstZoom);
         that.initLineChartSvg();
         window.scrollTo(0, document.body.scrollHeight / 2);
         globalApplicationState.ImportLine = new LineChart(that.originalData, "Import",call_names);
         globalApplicationState.ImportLine = new LineChart(that.originalData, "Export",call_names);
         globalApplicationState.ImportLine.updateLineChart(call_names);
         
+        // let tools = new Tools('./foo.txt');
+        let obj_txt = load('./foo.txt', call_names);
     }
+
+    sliderWnd() {
+        let svg_w = document.getElementById("chordCharts").clientWidth;
+        let svg_h = document.getElementById("chordCharts").clientHeight;
+
+        if (bShowLine) {
+            if (bChordChartLine == true) {
+                let control_line = this.chordChart.select('#control_line').append('line').attr('x1', 0 ).attr('y1', -svg_h/2).attr('x2', 0).attr('y2', svg_h/2)
+                .style("stroke", "lightgreen").style("stroke-width", 10);
+               
+                bChordChartLine = false;
+            }
+            let lastPos = null;
+            let bFirstIn = true;
+            this.chordChart.on('mousemove', (event) =>{
+                if (bFirstIn) {lastPos = event.offsetX; bFirstIn = false};
+                let xpos = event.offsetX - svg_w / 2;
+                
+                // --》
+                if (lastPos < event.offsetX) {
+                    //console.log('------->');
+                    bCurrentRight = true;
+                    bCurrentLeft = false;
+                    this.chordChart.select('#control_line').select('#left_rect').remove();
+                    if (xpos > 0 && bShowLine) {
+                        // this.chordChart.select('#control_line').select('#right_rect').remove();
+
+                       
+                        this.chordChart.select('#control_line').append('rect')
+                        .attr('x', 0)
+                        .attr('y', -svg_h /2)
+                        .attr('id', 'right_rect')
+                        .attr('width', Math.abs(xpos))
+                        .attr('height', svg_h).transition().duration(200).attr('fill', 'white').attr('opacity', 1);
+                    
+                        if (bDotImportchart) {
+                            dot_Importchart = new DotChart(this.originalData, "Import", 2020);
+                            globalApplicationState.dot_ImportChart = dot_Importchart;
+                            dot_Importchart.renderAxis();
+                            dot_Importchart.renderChart();
+                            bDotImportchart = false;
+                        }
+                        if (dot_Exportchart != null) {
+                            dot_Exportchart.renderClear("Export");
+                        }
+                        if (bShowLine && bDotImportchart == false) {
+                            dot_Importchart.renderAxis();
+                            dot_Importchart.renderChart();
+                        }
+                    } 
+                }
+                if (lastPos > event.offsetX) {
+                    //console.log('<-------');
+                    bCurrentRight = false;
+                    bCurrentLeft = true;
+                    this.chordChart.select('#control_line').select('#right_rect').remove();
+                    if (xpos < 0 && bShowLine) {
+                        this.chordChart.select('#control_line').append('rect')
+                        .attr('x', xpos)
+                        .attr('y', -svg_h /2)
+                        .attr('id', 'left_rect')
+                        .attr('width', Math.abs(0 - xpos))
+                        .attr('height', svg_h).transition().duration(200).attr('fill', 'white').attr('opacity', 1);
+                    
+                        if (bDotExportchart) {
+                            dot_Exportchart = new DotChart(this.originalData, "Export", 2020);
+                            globalApplicationState.dot_Exportchart = dot_Exportchart;
+                            dot_Exportchart.renderAxis();
+                            dot_Exportchart.renderChart();
+                            bDotExportchart = false;
+                        }
+                        if (dot_Importchart != null) {
+                            dot_Importchart.renderClear("Import");
+                        }
+
+                        if (bShowLine && bDotExportchart == false) {
+                            dot_Exportchart.renderAxis();
+                            dot_Exportchart.renderChart();
+                        }
+                    }
+                }
+                this.chordChart.select('#control_line').select('line').attr('x1', xpos ).attr('y1', -svg_h/2).attr('x2', xpos).attr('y2', svg_h/2);
+                lastPos = event.offsetX;
+
+            })
+        }
+        if (!bShowLine) {
+            this.chordChart.select('#control_line').select('line').remove();
+            this.chordChart.select('#control_line').selectAll('rect').remove();
+
+            if (dot_Importchart != null) {
+                dot_Importchart.renderClear("Import");
+            }
+            if (dot_Exportchart != null) {
+                dot_Exportchart.renderClear("Export");
+            }
+
+            bChordChartLine = true;
+        }
+        
+    }
+
+    
 
 }

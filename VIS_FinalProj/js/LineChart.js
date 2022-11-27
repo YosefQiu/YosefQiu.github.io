@@ -8,14 +8,21 @@ class LineChart {
         this.tradeType = tradeType
 
         
-        this.lineChart = d3.select('#lineCharts')
+        this.lineChart = d3.select('#lineCharts');
         
-        this.padding = { left: 80, bottom: 150, right: 50 }
+        this.padding = { left: 80, bottom: 150, right: 50};
 
+        this.lineChart.attr('width', '100%');
+        this.lineChart.attr('height', '100%');
         let svg_w = this.lineChart.attr('width');
         let svg_h = this.lineChart.attr('height');
+
+       svg_w = document.getElementById("lineCharts").clientWidth;
+       svg_h = document.getElementById("lineCharts").clientHeight;
+
         this.svg_w = svg_w;
         this.svg_h = svg_h;
+
         this.bMouseMove = false;
         this.country = country;
     
@@ -114,13 +121,14 @@ class LineChart {
     renderLineChart(LineChartData) {
         if (this.tradeType == "Export") {
             this.lineChart = this.lineChart.select('#Export')
-            this.lineChart.attr("transform", `translate(${this.svg_w / 2},0)`);
+            this.lineChart.attr("transform", `scale(${0.9})translate(${this.svg_w / 2 + this.padding.left / 2 + 15}, ${this.svg_h / 2})`);
             this.renderAxisLabel(this.lineChart);
             this.lineChart.append('text').text('EXPORT').attr('x', this.svg_h / 2).attr('y', 20);
         }
         else {
             this.lineChart = this.lineChart.select('#Import')
             this.renderAxisLabel(this.lineChart);
+            this.lineChart.attr("transform", `scale(${0.9})translate(0, ${this.svg_h / 2})`);
             this.lineChart.append('text').text('IMPORT').attr('x', this.svg_h / 2).attr('y', 20);
         }
   
@@ -300,10 +308,10 @@ class LineChart {
            
         });
         svg.on('click', (event, d, i) => {
-            console.log('evnet', event);
-            console.log('d', d);
-            console.log('i', i);
-            console.log(event.target);
+            //console.log('evnet', event);
+            //console.log('d', d);
+            //console.log('i', i);
+            //console.log(event.target);
         })
         
     }
@@ -315,8 +323,14 @@ class LineChart {
             
             this.padding = { left: 80, bottom: 150, right: 50 }
     
+            this.lineChart.attr('width', '100%');
+            this.lineChart.attr('height', '100%');
             let svg_w = this.lineChart.attr('width');
             let svg_h = this.lineChart.attr('height');
+
+            svg_w = document.getElementById("lineCharts").clientWidth;
+            svg_h = document.getElementById("lineCharts").clientHeight;
+
             this.svg_w = svg_w;
             this.svg_h = svg_h;
             this.bMouseMove = false;

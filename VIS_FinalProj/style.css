@@ -24,8 +24,8 @@
 }
 
 .main_title {
-  font-size: 70px;
-  font-weight: 600;
+  font-size: 42px;
+  font-weight: 900;
   font-family: 'Comic Sans MS';
   text-align: center;
   background-image: radial-gradient(circle, #553c9a, #ee4b2b);
@@ -72,89 +72,6 @@
   z-index: 100;
 }
 
-/* General Buttons */
-button {
-  width: 130px;
-  height: 40px;
-  background: linear-gradient(to bottom, #4eb5e5 0%,#389ed5 100%); /* W3C */
-  border: none;
-  border-radius: 5px;
-  position: fixed;
-  left: 88%;
-  top: 30%;
-  border-bottom: 4px solid #2b8bc6;
-  color: #fbfbfb;
-  font-weight: 600;
-  font-family: 'Open Sans', sans-serif;
-  text-shadow: 1px 1px 1px rgba(0,0,0,.4);
-  font-size: 15px;
-  text-align: left;
-  text-indent: 5px;
-  box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
-  cursor: pointer;
-
-/* Just for presentation */  
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 20px;
-}
-button:active {
-  box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
-  /* top: 1px; */
-}
-
-button:after {
-  content: "";
-  width: 0;
-  height: 0;
-  display: block;
-  border-top: 20px solid #187dbc;
-  border-bottom: 20px solid #187dbc;
-  border-left: 16px solid transparent;
-  border-right: 20px solid #187dbc;
-  position: absolute;
-  opacity: 0.6; 
-  right: 0;
-  top: 0;
-  border-radius: 0 5px 5px 0;  
-}
-
-/* Button pointing left */
-
-button.back {
-  text-align: right;
-  padding-right: 12px;
-  box-sizing: border-box;
-  position: relative;
-  left: 670px;
-  top: 200px;
-}
-button.back:after {
-  content: "";
-  width: 0;
-  height: 0;
-  display: block;
-  border-top: 20px solid #187dbc;
-  border-bottom: 20px solid #187dbc;
-  border-right: 16px solid transparent;
-  border-left: 20px solid #187dbc;
-  position: absolute;
-  opacity: 0.6; 
-  left: 0;
-  top: 0;
-  border-radius: 5px 0 0 5px;    
-}
-
-/* Single buttons */
-
-button.site {
-  width: 40px;
-  text-align: center;
-  text-indent: 0;
-}
-button.site:after{
-  display: none;
-}
 
 /* Presentation stuff */
 .holder {
@@ -174,13 +91,29 @@ h1 {
   text-shadow: 1px 1px 1px #fff;
   margin-bottom: 30px;
 } 
+.showLine {
+  text-align: center;
+  background: #fcfcfc;
+  box-shadow: 0px 15px 40px #ffffff;
+  border-radius: 12px;
+  border-color: transparent;
+  height: 63px;
+  width: 150px;
+  font-size: 16px;
+  position: absolute;
+  top: 26%;
+  left: 50%;
+}
 
+.showLine:hover {
+  background: gray;
+}
 .page_select{
   width: 150px;
   height: 35px;
   line-height: normal;
   position: absolute;
-  top: 66%;
+  top: 26%;
   left: 65%;
   /* display: inline-block; */
 }
@@ -191,7 +124,7 @@ h1 {
 .page_select .page_tt{
    text-align: center;
    background: #fcfcfc;
-   box-shadow: 0px 15px 40px #7E6D5766;
+   box-shadow: 0px 15px 40px #ffffff;
    padding-top: 23px;
    border-radius: 12px;
    color: #444444;
@@ -233,9 +166,9 @@ h1 {
 
 /* slider======================================= */
 .slider {
-  position: absolute;
-  top: 70%;
-  left: 30%;
+  position:absolute; 
+  left:25%;
+  top:30%;
   transform: translate(-50%,-50%);
   width: 600px;
   height: 20px;
@@ -245,7 +178,7 @@ h1 {
   border-radius: 20px;
   display: flex;
   align-items: center;
-  box-shadow: 0px 15px 40px #7E6D5766;
+  box-shadow: 0px 15px 40px #ffffff;
 }
 
 .slider p {
