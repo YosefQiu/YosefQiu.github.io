@@ -20,10 +20,10 @@
   - [x] color change
   - [x] mouse move highlight
   - [x] opacity too low conclicts with the background
-- [ ] adjustment of layout size && position
-- [ ] tool tips
-- [ ] content
-  - [ ] add some content in the aside part
+- [x] adjustment of layout size && position
+- [x] tool tips
+- [x] content
+  - [x] add some content in the aside part
   - [ ] add some content in the blank area above the linechart 
 - [x] tool bar
 - [x] down tool bar
@@ -40,17 +40,17 @@ year widgets
    - [x] **home page btn** in the **aboutPage.html**
    - [x] **home page btn** in the **layout.html**
    - [x] change **layout.html** to **index.html** && delete orginal **index.html**
-   - [ ] keep the background color first to check whether the layout is correct
+   - [x] keep the background color first to check whether the layout is correct
 
 2. delete the ```html <div class="charts">```  in class view1 && class view2 
    - solves the bug of svg and the blank area below in the those view
 3. change the scale and translate in chordchart 
 4. add a dot chart
-   - [ ] show when mouse mouve and compare btn down
+   - [x] show when mouse mouve and compare btn down
    - [x] **bug** avg smaller than min ?
-   - [ ] hide and display
-   - [ ] change the line and circle color
-   - [ ] add countries name
+   - [x] hide and display
+   - [x] change the line and circle color
+   - [x] add countries name
 5. add a tool for content class
 6. add force bubble chart
-   - [ ] label
+   - [x] label

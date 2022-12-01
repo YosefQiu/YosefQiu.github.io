@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CSS Grid Complex</title>
+    <title>Worldwide Importing & Exporting Trading Data Visualization</title>
     <style>
         .wrapper {
             display: grid;
@@ -27,13 +27,13 @@
             grid-row-end: 3;
         }
         .view1 {
-            background-color: rgb(255, 255, 255);
+            background-color: rgb(0, 0, 0);
             height:800px;
             grid-column-start: 1;
             grid-column-end: 3;
             grid-row-start: 3;
             grid-row-end: 4;
-            /* opacity: 0.7; */
+            opacity: 0.7;
         }
         .view2 {
             /* background-color: rgb(255, 255, 255); */
@@ -44,6 +44,30 @@
             grid-row-end: 5;
             /* opacity: 0.7; */
         }
+
+        .p {
+            font-family: 'Comic Sans MS';
+        }
+
+        .view1 #y-axis path {
+            stroke: white;
+        } 
+        .view1 #x-axis path {
+            stroke: white;
+        } 
+        .view1 #y-axis line {
+            stroke: white;
+        } 
+        .view1 #x-axis line {
+            stroke: white;
+        } 
+        .view1 #y-axis text {
+            stroke: white;
+        } 
+        .view1 #x-axis text {
+            stroke: white;
+        } 
+
         .view2 #y-axis path {
             stroke: white;
         } 
@@ -71,23 +95,102 @@
             grid-row-end: 6;
         }
         .aside_before {
-            background-color: steelblue;
+            /* background-color: steelblue; */
             grid-column-start: 3;
             grid-column-end: 4;
             grid-row-start: 2;
             grid-row-end: 7;
         }
         .aside_after {
-            background-color: steelblue;
+            /* background-color: steelblue; */
             grid-column-start: 3;
             grid-column-end: 4;
             grid-row-start: 2;
             grid-row-end: 7;
         }
+
+        .aside_before a {
+            font-family: 'Comic Sans MS';
+            font-size: xx-large;
+            font-weight: bolder;
+        }
+
+        .aside_before p {
+            font-family: 'Comic Sans MS';
+            font-size: large;
+            font-weight: bolder;
+            color:#b0c4de;
+        }
+        .aside_after p {
+            font-family: 'Comic Sans MS';
+            font-size: large;
+            font-weight: bolder;
+            color:#b0c4de;
+        }
+
+        .aside_before a:link {
+            color:white
+        }
+
+        .aside_before a:visited {
+            color:pink;
+        }
+
+        .aside_before a:hover {
+            color:steelblue;
+            text-decoration: underline;
+        }
+
+        .aside_before a:active {
+            color:yellow;
+            text-decoration: underline;
+        }
+        
+        .aside_before {
+            /* background-color: steelblue; */
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 7;
+        }
+        .aside_after {
+            /* background-color: steelblue; */
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 7;
+        }
+
+        .aside_after a {
+            font-family: 'Comic Sans MS';
+            font-size: xx-large;
+            font-weight: bolder;
+        }
+
+        .aside_after a:link {
+            color:white
+        }
+
+        .aside_after a:visited {
+            color:pink;
+        }
+
+        .aside_after a:hover {
+            color:steelblue;
+            text-decoration: underline;
+        }
+
+        .aside_after a:active {
+            color:yellow;
+            text-decoration: underline;
+        }
+
         footer {
-            background-color: #b0c4de;
+            font-family: 'Comic Sans MS';
+            /* background-color: #b0c4de; */
             grid-column: 1 / 3; 
-            text-align: center;          
+            text-align: center;      
+            color:azure    
         }
         
         .uibar {
@@ -106,6 +209,7 @@
             text-align: center;
             font-family: 'Comic Sans MS';
             font-weight: 100;
+            color: #b0c4de;
         }
         .button:hover{
             /* background-color: lightgray; */
@@ -127,7 +231,7 @@
 <body>
     <div class="wrapper">
         <nav>     
-            <h2 class="main_title">Worldwide Importing&Exporting Trading Data Visualization</h2>  
+            <h2 class="main_title">Worldwide Importing & Exporting Trading Data Visualization</h2>  
         <div class="toolbar">
             <span onclick="location.href='./index.html'" class="button">Home Page</span>
             <span class="button">Project Proposal</span>
@@ -137,6 +241,51 @@
             <span onclick="location.href='https://github.com/YosefQiu/VIS_FinalProj'" class="button">Github</span>
         </div>
         </nav>
+        
+
+        <div class="view1">
+            <svg id="chordCharts">
+                <g id="Import"></g>
+                <g id="Export"></g>
+                <g id="control_line"></g>
+                <g id="dotCharts">
+                    <g id="Import"><g id="y-axis"></g></g>
+                    <g id="Export"><g id="y-axis"></g></g>
+                </g>
+            </svg>
+        </div>
+
+        <div id="pre_view2">
+        </div>
+
+        <div class="view3"><svg id="bubbleCharts"></svg></div>
+
+        <aside id="id_aside"class="aside_before">
+            <div><p></p></div>
+            <a href="https://www.wto.org/english/thewto_e/whatis_e/wto_dg_stat_e.htm"> Overview</a>
+            <p>
+                The World Trade Organization — the WTO — is the international organization whose primary purpose is to open trade for the benefit of all.
+            </p>
+            <a href="https://www.wto.org/english/thewto_e/whatis_e/whatis_e.htm"> What is the WTO</a>
+            <p>
+                The World Trade Organization (WTO) is the only global international organization dealing with the rules of trade between nations. At its heart are the WTO agreements, negotiated and signed by the bulk of the world’s trading nations and ratified in their parliaments. The goal is to help producers of goods and services, exporters, and importers conduct their business.
+            </p>
+            <div></div>
+            <a href="https://www.wto.org/english/thewto_e/whatis_e/what_we_do_e.htm"> What WTO do</a>
+            <p>
+                The WTO is run by its member governments. All major decisions are made by the membership as a whole, either by ministers (who usually meet at least once every two years) or by their ambassadors or delegates (who meet regularly in Geneva).
+            </p>
+            <p>
+                While the WTO is driven by its member states, it could not function without its Secretariat to coordinate the activities. The Secretariat employs over 600 staff, and its experts — lawyers, economists, statisticians and communications experts — assist WTO members on a daily basis to ensure, among other things, that negotiations progress smoothly, and that the rules of international trade are correctly applied and enforced.
+            </p>
+            <a href="https://www.wto.org/english/thewto_e/whatis_e/who_we_are_e.htm"> Who they are</a>
+            <p>
+                The overall objective of the WTO is to help its members use trade as a means to raise living standards, create jobs and improve people’s lives. The WTO operates the global system of trade rules and helps developing countries build their trade capacity. It also provides a forum for its members to negotiate trade agreements and to resolve the trade problems they face with each other.
+            </p>
+            <p>
+                There are a number of ways of looking at the World Trade Organization. It is an organization for trade opening. It is a forum for governments to negotiate trade agreements. It is a place for them to settle trade disputes. It operates a system of trade rules. Essentially, the WTO is a place where member governments try to sort out the trade problems they face with each other.
+            </p>
+        </aside>
         <div class="view0">
 
             <div class="uibar">
@@ -185,26 +334,6 @@
             </div>
             
         </div>
-
-        <div class="view1">
-            <svg id="chordCharts">
-                <g id="Import"></g>
-                <g id="Export"></g>
-                <g id="control_line"></g>
-                <g id="dotCharts">
-                    <g id="Import"><g id="y-axis"></g></g>
-                    <g id="Export"><g id="y-axis"></g></g>
-                </g>
-            </svg>
-        </div>
-
-        <div id="pre_view2">
-        </div>
-
-        <div class="view3"><svg id="bubbleCharts"></svg></div>
-
-        <aside id="id_aside"class="aside_before">aside</aside>
-        
         <footer>
             <p>
                 This <strong>Worldwide Importing&Exporting Trading Data Visualization</strong> for <a href="https://www.dataviscourse.net/2022/index.html">CS6630-Fall 2022</a>

@@ -9,4 +9,4 @@
 - Zhongyi Jiang UID:u1379343 EMAIL:u1379343@utah.edu
 
 Website: [https://yongfengqiu.xyz/VIS_FinalProj/](https://yongfengqiu.xyz/VIS_FinalProj/)   
-Youtube: TBD
+Youtube: [https://youtu.be/EDIDZB2v-C4](https://youtu.be/EDIDZB2v-C4)

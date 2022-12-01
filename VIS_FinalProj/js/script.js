@@ -4,7 +4,7 @@ const globalApplicationState = {
     ImportLine: null,
     ExportLine: null,
     dot_Importchart: null,
-    dot_ExportcHart: null,
+    dot_Exportchart: null,
 };
 
 let bChordChartLine = true;

@@ -183,6 +183,7 @@ class ChordChart {
         svg.select("#title").append("text")
             .text(`${this.TradeType} Data For year ${this.year}`)
             .attr("font-size", 20)
+            .style('fill', 'white')
             .attr("transform", ` translate(${- this.vizWidth *0.3125}, ${- this.vizWidth * 0.4375})`);
 
         const chords = this.chord(this.data);
@@ -321,6 +322,21 @@ class ChordChart {
 
         document.getElementById('id_aside').classList.remove('aside_before');
         document.getElementById('id_aside').classList.add('aside_after');
+
+        let mainDiv = document.getElementById("id_aside");
+        let tag_a = document.createElement('a');
+        tag_a.href = 'https://www.wto.org/english/thewto_e/history_e/history_e.htm';
+        tag_a.innerText = 'History';
+        mainDiv.appendChild(tag_a);
+
+        let tag_p = document.createElement('p');
+        tag_p.innerText = 'From the early days of the Silk Road to the creation of the General Agreement on Tariffs and Trade (GATT) and the birth of the WTO, trade has played an important role in supporting economic development and promoting peaceful relations among nations. This page traces the history of trade, from its earliest roots to the present day.';
+        mainDiv.append(tag_p);
+
+        let tag_p2 = document.createElement('p');
+        tag_p2.innerText = 'Trade and foreign policy have been intertwined throughout history, with foreign policy often tailored to promote trade interests.  In the 3rd century BC, during the Han Dynasty, China used its military power to maintain the Silk Road for its value for trade.  In the year 30 BC, Rome conquered Egypt in large part to have a better supply of grain.';
+        mainDiv.append(tag_p2);
+
         this.bLineChartInit = true;
         console.log('init finish========');
         bLineChartCreate = true;
@@ -373,11 +389,11 @@ class ChordChart {
                         .attr('y', -svg_h /2)
                         .attr('id', 'right_rect')
                         .attr('width', Math.abs(xpos))
-                        .attr('height', svg_h).transition().duration(200).attr('fill', 'white').attr('opacity', 1);
+                        .attr('height', svg_h).transition().duration(200).attr('fill', 'black').attr('opacity', 1);
                     
                         if (bDotImportchart) {
                             dot_Importchart = new DotChart(this.originalData, "Import", 2020);
-                            globalApplicationState.dot_ImportChart = dot_Importchart;
+                            globalApplicationState.dot_Importchart = dot_Importchart;
                             dot_Importchart.renderAxis();
                             dot_Importchart.renderChart();
                             bDotImportchart = false;
@@ -402,7 +418,7 @@ class ChordChart {
                         .attr('y', -svg_h /2)
                         .attr('id', 'left_rect')
                         .attr('width', Math.abs(0 - xpos))
-                        .attr('height', svg_h).transition().duration(200).attr('fill', 'white').attr('opacity', 1);
+                        .attr('height', svg_h).transition().duration(200).attr('fill', 'black').attr('opacity', 1);
                     
                         if (bDotExportchart) {
                             dot_Exportchart = new DotChart(this.originalData, "Export", 2020);

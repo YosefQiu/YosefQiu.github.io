@@ -2,6 +2,11 @@
 .charts{
   height:700px;
 }
+
+text {
+  font-family: 'Comic Sans MS';
+}
+
 .view{
   margin:auto;
   height:1000px;

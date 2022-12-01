@@ -21,7 +21,7 @@ function getCountryIdx(countryName) {
         case 'China':return 1; break;
         case 'United States': return 0; break;
         case 'Japan': return 4; break;
-        case 'Korea, Rep': return 5; break;
+        case 'Korea, Rep.': return 5; break;
         case 'Australia': return 2; break;
         case 'Malaysia': return 6; break;
         case 'Germany': return 3; break;
@@ -61,6 +61,19 @@ function addContent(content, countryName) {
             .attr('x', 30)
             .attr('y', 30 + i * 20)
             .attr('font-size', '20px')
+            .style('fill', 'white')
+            .text(strs[i]);
+       }
+    }
+
+    if (index == 2) {
+        let str = content[index];
+        let strs = str.split("!!!!") ;
+       for (let i = 0; i < strs.length; i++) {
+        svg.append('text')
+            .attr('x', 30)
+            .attr('y', 30 + i * 30)
+            .attr('font-size', '30px')
             .style('fill', 'white')
             .text(strs[i]);
        }

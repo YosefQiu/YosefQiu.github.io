@@ -104,13 +104,13 @@ class LineChart {
             .join('path')
             .attr('fill', 'none')
             .attr('stroke', 'black')
-            .attr('stroke-width', 10)
+            .attr('stroke-width', 20)
             .style("opacity", 0)
             .transition()
             .duration(6000)
             .ease(d3.easeLinear)
             .style("opacity", 1)
-            .attr('stroke-width', 1)
+            .attr('stroke-width', 5)
             .attr('stroke', ([group, values]) => this.lineColorScale(values[0].traders))
             .attr('d', ([group, values]) => d3.line()
                 .x((d,i) =>xAxis(parseInt(d.year)))
@@ -307,12 +307,7 @@ class LineChart {
         
            
         });
-        svg.on('click', (event, d, i) => {
-            //console.log('evnet', event);
-            //console.log('d', d);
-            //console.log('i', i);
-            //console.log(event.target);
-        })
+        
         
     }
 

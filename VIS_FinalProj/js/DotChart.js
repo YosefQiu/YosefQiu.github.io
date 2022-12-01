@@ -267,12 +267,12 @@ class DotChart {
         }
     }
 
-    async updateChart(tradeType, year) {
+    updateChart(tradeType, year) {
         this.renderClear();
         this.processData(tradeType, year);
-        //this.renderAxis();
+        this.renderAxis();
     
-        //await this.renderChart();
+        this.renderChart();
     
     }
 }
