@@ -20,7 +20,7 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
 
 
 
-<title>Cloud System base on TCP/IP Protocol | Yongfeng Qiu</title>
+<title>ABOUT ME | Yongfeng Qiu</title>
 
 
 
@@ -593,13 +593,17 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
 
     <!-- toc -->
     
+  <!-- tocbot -->
+<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
+
+
 <section class="px-6 max-w-prose mx-auto md:px-0">
   <!-- Post header before content -->
   <header class="py-4">
     <div class="flex flex-col gap-2 pt-4 md:pt-6">
       <!-- Title -->
       <div id="article-title" class="leading-snug">
-        <p class="text-3xl font-bold text-[var(--c-100)] mb-4">Cloud System base on TCP/IP Protocol</p>
+        <p class="text-3xl font-bold text-[var(--c-100)] mb-4">ABOUT ME</p>
       </div>
       <!-- Meta data -->
       <div>
@@ -609,11 +613,11 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
             <!-- Dates -->
             <div class="flex items-center gap-1">
               <iconify-icon width="18" icon="mingcute:add-circle-fill" ></iconify-icon>
-              Created: <time class="w-max">2020-11-20</time>
+              Created: <time class="w-max">2023-10-10</time>
             </div>
             <div class="flex items-center gap-1">
               <iconify-icon width="18" icon="mingcute:refresh-3-fill" ></iconify-icon>
-              Edited: <time class="w-max">2022-11-22</time>
+              Edited: <time class="w-max">2023-10-10</time>
             </div>
           </div>
           <div class="flex flex-wrap items-center gap-x-3 gap-y-3">
@@ -623,7 +627,7 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
             <!-- Word count -->
             <span class="flex items-center gap-1">
               <iconify-icon width="18" icon="mingcute:book-2-fill" ></iconify-icon>
-              <span>449 words, 2 min</span>
+              <span>134 words, 1 min</span>
             </span>
             <!-- Categories -->
             
@@ -635,63 +639,19 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
         
 <div class="flex flex-wrap gap-1">
   
-    
-      <a href="/tags/Article/" 
-        class="
-          tag
-          text-sm
-          rounded-full
-          dark:drop-shadow-none
-        ">
-        #Article
-      </a>
-    
-      <a href="/tags/TCP-IP/" 
-        class="
-          tag
-          text-sm
-          rounded-full
-          dark:drop-shadow-none
-        ">
-        #TCP/IP
-      </a>
-    
-      <a href="/tags/C/" 
-        class="
-          tag
-          text-sm
-          rounded-full
-          dark:drop-shadow-none
-        ">
-        #C++
-      </a>
-    
-  
 </div>
       </div>
     </div>
   </header>
   <!-- content -->
   <article class="post-content prose m-auto dark:prose-invert">
-    <p>Because of the covid-19 epidemic last semester, many courses in our school were implemented by Dingding. In the process of using this software, I found that many functions of this software can be implemented independently. Therefore, I wrote this project based on Windows system.</p>
-<span id="more"></span>
-<p>This project is divided into several modules:</p>
-<ul>
-<li>registration / login module</li>
-<li>adding friend chat module</li>
-<li>a file transmission module of the cloud disk.<br>
-In the cloud disk file transmission module, I mainly implemented :</li>
-<li>file upload (including normal upload, upload in milliseconds, breakpoint continuation upload)</li>
-<li>file download</li>
-<li>file sharing</li>
-<li>file extraction</li>
-<li>file deletion</li>
-<li>a log.</li>
-</ul>
-<p>In this project, I only use the TCP protocol, because compared with UDP, TCP has security check, which will not lead to packet loss and disorder. TCP has a sliding window, which can use the data size that the other party can receive It is subject to congestion control. You can consider the situation of the whole network before transmitting data. However, TCP adopts the communication mode of data flow, so it may bring sticky packets. In the project, in order to solve this problem, I send the packet size first and then the packet content, so as to ensure that there are no sticky packets.</p>
-<p>When I first wrote this project, I didn’t consider the problem of high concurrency. However, recv is a blocking function. Whenever multiple clients send requests, recv will process the characters in the socket in turn. Only the current character is processed before processing the next task. In this way, the Xiao Liu of the server is relatively low. Therefore, I use the multithreaded model, Later, when I was writing another project, I found a better optimization scheme, using thread pool. At the beginning, I created threads with CPU cores * 2, so that they were blocked and did not occupy CPU time. When the drawing task came, I released the specified semaphore to wake up., For task delivery in the thread pool, I only use the producer consumer model. There are multiple producers and multiple consumers. The queue used is a ring queue written by me.</p>
-<p>When I look up some information on StackOverflow, I understand the IO multiplexing technology. Therefore, I have made some optimization for the project. When I use network connection, I only use the select model, The select model is used to receive data, and the thread pool is used to process data at the same time, so as to improve efficiency.</p>
-<p>Rencently, I optimized the project again. I cancelled the select model and used IOCP (completion port) instead. Maybe when I have time, I will refactor the code. I will put the server on Linux and use the epoll model.</p>
+    <h3 id="Ph-D-student-CSE-at-COLLEGE-OF-ENGINEERING-THE-OHIO-STATE-UNIVERSITY">Ph.D student, CSE at <a target="_blank" rel="noopener" href="https://cse.osu.edu/">COLLEGE OF ENGINEERING, THE OHIO STATE UNIVERSITY</a></h3>
+<p>Hey,</p>
+<p>My name is Yongfeng(Yosef) Qiu. The exact pronunciation of my name in Chinese is closer to YongFung Chiu.</p>
+<p>In 2023, I received a M.S. in <em>Graph and Visualization</em> track in computing at <strong>The University of Utah</strong>, under the guidance of Professor.<a target="_blank" rel="noopener" href="http://www.cemyuksel.com">Cem Yuksel</a>.</p>
+<p>In 2021, I received a B.S. in <em>Graph and Image processing</em> track in computer science and technology at <strong>Harbin University of Science and Technology</strong>.</p>
+<p>Now I’m studying for my Ph.D. under the guidance of Dr. <a target="_blank" rel="noopener" href="https://hguo.github.io">Hanqi Guo</a> at the <strong>The Ohio State University</strong>.</p>
+<p>I’m interested in graphics and, more precisely, in PBR(Physically Based Rendering) and geometric modeling. At the same time, I am also a fan of music and switch games.</p>
 
   </article>
 
@@ -701,18 +661,6 @@ In the cloud disk file transmission module, I mainly implemented :</li>
     gap-2 text-[var(--c-50)]
   ">
     <div>
-      
-        <a href="/2021/05/31/Multithreading-programming-and-resource-synchronization/"
-          class="
-            transition-all
-            flex justify-center
-            hover:-translate-x-1
-            hover:text-[var(--c-80)]
-          ">
-          <iconify-icon width="20" icon="mingcute:left-fill" data-inline="false">
-          </iconify-icon>
-          Multithreading programming and resource synchronization
-        </a>
       
     </div>
     <div>
