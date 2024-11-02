@@ -20,7 +20,7 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
 
 
 
-<title>Archives: 2020/11 | Yongfeng Qiu</title>
+<title>Tag: CUDA | Yongfeng Qiu</title>
 
 
 
@@ -431,7 +431,50 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
   </div>
 </div>
   <main>
-    <section class="px-2 py-8 max-w-prose mx-auto gap-4 grid grid-cols-1">
+    <!-- 
+This page has two versions, which is shown is based on whether current page
+is "tag".
+
+  - url:'http://localhost:4000/tag/' return false.
+- url:'http://localhost:4000/tags/test/' return true.
+
+The '/tag/' page shows all tags and is where you land on when you click
+on the "Tags" in the navigation bar. Otherwise if you enter 'tags' by clicking on of the tag elements in some
+posts, and it shows all posts with that tag.
+
+To add a "Tags" page.
+
+1. hexo new page "tag"
+2. cd source/tag/index.md
+3. Add the following front matter.
+
+---
+title: '''tag'''
+date: 2019-06-09 09:56:49
+layout: tag
+---
+-->
+
+  <!-- 已经选择了一个tag，显示一个 tag 的所有 post -->
+  <div class="mt-6">
+    <div class="flex flex-wrap gap-1 justify-center items-center">
+      <iconify-icon width="24" icon="mingcute:tag-fill"></iconify-icon>
+      <div class="text-xl align-middle">
+        Tag:
+      </div>
+      <div 
+      class="
+        tag
+        px-2
+        py-[1px]
+        text-xl
+        rounded-full
+        pointer-events-none
+      ">
+        #CUDA
+      </div>
+  </div>
+  <section class="px-2 py-8 max-w-prose mx-auto gap-4 grid grid-cols-1">
   
   
     
@@ -444,7 +487,7 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
             text-[var(--c-theme)]
             opacity-10
             dark:opacity-20">
-            2020
+            2024
           </p>
         </div>
       </div>
@@ -458,7 +501,7 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
 ">
     <div class="post-data-container flex flex-col gap-2">
         <!-- Post title -->
-        <a href="/2020/11/20/Cloud-System-base-on-TCP-IP-Protocol/">
+        <a href="/2024/11/01/LCPV/">
             <h2 class="
                     text-[var(--c-80)]
                     font-bold
@@ -466,13 +509,13 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
                     hover:text-[var(--c-theme)]
                     transition-all
                     hover:underline">
-                Cloud System base on TCP/IP Protocol
+                Lossy Parallel Visualization of Large-Scale Volume Data with Error-Bounded Image Compositing
             </h2>
         </a>
         <!-- Post excerpt -->
         
             <div class="post-excerpt text-[var(--c-60)] text-sm line-clamp-3">
-                <p>Because of the covid-19 epidemic last semester, many courses in our school were implemented by Dingding. In the process of using this software, I found that many functions of this software can be implemented independently. Therefore, I wrote this project based on Windows system.</p>            </div>
+                <p>Author: <strong>Yongfeng Qiu</strong>, Yuxiao Li, Xin Liang, Yafan Huang, Guanpeng Li, Sheng Di, Franck Cappello, Hanqi Guo</p>            </div>
         
         <!-- Post Statistics -->
         <div class="flex flex-wrap items-center gap-x-2 text-sm
@@ -481,21 +524,21 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
                 <iconify-icon width="16"
                     icon="mingcute:add-circle-fill"></iconify-icon>
                 <time class="w-max">
-                    2020-11-20
+                    2024-11-01
                 </time>
             </span>
             <span class="flex flex-row items-center gap-1 group">
                 <iconify-icon width="16"
                     icon="mingcute:refresh-3-fill"></iconify-icon>
                 <time class="w-max">
-                    2022-11-22
+                    2024-11-01
                 </time>
             </span>
             <span class="flex flex-row items-center gap-1 group">
                 <iconify-icon width="16"
                     icon="mingcute:book-2-fill"></iconify-icon>
                 <p class="w-max">
-                    449 words, 2 min
+                    194 words, 1 min
                 </p>
             </span>
             <!-- Categories -->
@@ -520,24 +563,129 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
         #Article
       </a>
     
-      <a href="/tags/C/" 
+      <a href="/tags/Lossy-Compression/" 
         class="
           tag
           text-sm
           rounded-full
           dark:drop-shadow-none
         ">
-        #C++
+        #Lossy Compression
       </a>
     
-      <a href="/tags/TCP-IP/" 
+      <a href="/tags/CUDA/" 
         class="
           tag
           text-sm
           rounded-full
           dark:drop-shadow-none
         ">
-        #TCP/IP
+        #CUDA
+      </a>
+    
+  
+</div>
+            
+        </div>
+    </div>
+</div>
+    </div>
+  
+    
+    <!-- Large text showing the year in the background -->
+    
+    <!-- The post -->
+    <div class="w-full">
+      <!-- One post item in a list -->
+<div class="
+    post-container
+    px-3 py-3
+">
+    <div class="post-data-container flex flex-col gap-2">
+        <!-- Post title -->
+        <a href="/2024/11/01/MSZ/">
+            <h2 class="
+                    text-[var(--c-80)]
+                    font-bold
+                    text-xl
+                    hover:text-[var(--c-theme)]
+                    transition-all
+                    hover:underline">
+                MSz: An Efficient Parallel Algorithm for Correcting Morse-Smale Segmentations in Error-Bounded Lossy Compressors
+            </h2>
+        </a>
+        <!-- Post excerpt -->
+        
+            <div class="post-excerpt text-[var(--c-60)] text-sm line-clamp-3">
+                <p><em>IEEE Transactions on Visualization and Computer Graphics (Proc. IEEE VIS 2024), 2025.</em><br>
+Author: Yuxiao Li, Xin Liang, Bei Wang, <strong>Yongfeng Qiu</strong>, Lin Yan, Hanqi Guo<br>
+<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/10670476">DOI</a> | <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.09423">arXiv</a> | <a target="_blank" rel="noopener" href="https://github.com/YuxiaoLi1234/MSz-">GitHub</a></p>
+<p><a target="_blank" rel="noopener" href="https://yuxiaoli1234.github.io/publications/2024-02-17-paper-title-number-4/">Link to the paper page</a></p>            </div>
+        
+        <!-- Post Statistics -->
+        <div class="flex flex-wrap items-center gap-x-2 text-sm
+            text-[var(--c-70)]">
+            <span class="flex flex-row items-center gap-1 group">
+                <iconify-icon width="16"
+                    icon="mingcute:add-circle-fill"></iconify-icon>
+                <time class="w-max">
+                    2024-11-01
+                </time>
+            </span>
+            <span class="flex flex-row items-center gap-1 group">
+                <iconify-icon width="16"
+                    icon="mingcute:refresh-3-fill"></iconify-icon>
+                <time class="w-max">
+                    2024-11-01
+                </time>
+            </span>
+            <span class="flex flex-row items-center gap-1 group">
+                <iconify-icon width="16"
+                    icon="mingcute:book-2-fill"></iconify-icon>
+                <p class="w-max">
+                    212 words, 1 min
+                </p>
+            </span>
+            <!-- Categories -->
+            <span class="flex flex-row items-center gap-1 group">
+                
+            </span>
+        </div>
+        <!-- Tags -->
+        <div>
+            
+                
+<div class="flex flex-wrap gap-1">
+  
+    
+      <a href="/tags/Article/" 
+        class="
+          tag
+          text-sm
+          rounded-full
+          dark:drop-shadow-none
+        ">
+        #Article
+      </a>
+    
+      <a href="/tags/Lossy-Compression/" 
+        class="
+          tag
+          text-sm
+          rounded-full
+          dark:drop-shadow-none
+        ">
+        #Lossy Compression
+      </a>
+    
+      <a href="/tags/CUDA/" 
+        class="
+          tag
+          text-sm
+          rounded-full
+          dark:drop-shadow-none
+        ">
+        #CUDA
       </a>
     
   
@@ -549,6 +697,8 @@ His research interests include Physically Based Rendering (PBR) and geometric mo
     </div>
   
 </section>
+
+
 
   </main>
   <footer class="flex flex-col mt-12 mb-12 items-center
